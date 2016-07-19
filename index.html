@@ -4,6 +4,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link href="css/vendor/bootstrap.min.css" rel="stylesheet" />
         <link href="css/main.css" rel="stylesheet" />
+        <script src="js/vendor/jquery-1.12.4.min.js"></script>
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/vendor/angular.min.js"></script>
         <script src="js/vendor/angular-route.min.js"></script>
@@ -23,30 +24,58 @@
         </div>
 
         <div class="main">
-            <div class="container-small">
-                <div class="row display">
-                    <div class="col-xs-2 col-md-2 center">
-                        <p class="category-label">Hardware</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3 col-md-3">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle"
+                                    type="button"
+                                    data-toggle="dropdown">
+                                Category
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="">Hardware</a></li>
+                                <li><a href="">Webbing</a></li>
+                                <li><a href="">Pulley</a></li>
+                            </ul>
+                        </div>
+                        <div class="filters">
+                            <p>test</p>
+                        </div>
                     </div>
-                    <div class="col-xs-6 col-md-6 left">
-                        <a href="" class="item-label">Alpine WL 4.0</a>
-                    </div>
-                    <div class="col-xs-4 col-md-4 right">
-                        <p class="price-label">$500</p>
-                        <a href="" class="notes-label">Show Notes</a>
+                    <div class="col-xs-9 col-md-9">
+                        <table class="table-responsive table table-hover">
+                            <thread>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Brand</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                    <th></th>
+                                </tr>
+                            </thread>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>BalanceCommunity</td>
+                                    <td>FeatherPro</td>
+                                    <td>Lightweight slackline webbing</td>
+                                    <td><input type="text" class="amount" /></td>
+                                    <td><a href="">Add</a></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>BalanceCommunity</td>
+                                    <td>Aero2</td>
+                                    <td>Medium stretch</td>
+                                    <td><input type="text" class="amount" /></td>
+                                    <td><a href="">Add</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="row display">
-                    <div class="col-xs-2 col-md-2 left">
-                        <a href="" class="add-item-label">
-                            <span class="glyphicon glyphicon-plus-sign"></span>
-                            Add Item
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer">
-                <a href="">Share this kit</a>
             </div>
         </div>
     <!-- Modules -->
