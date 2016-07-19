@@ -23,8 +23,7 @@ body {
     margin: 25px 0;
 }
 
-.header .pull-left{
-    border: 1px solid black;
+.header .pull-left {
     height: 75px;
     margin-top: 25px;
     top: 0;
@@ -33,10 +32,15 @@ body {
 }
 
 .header .pull-right {
-    border: 1px solid black;
     height: 75px;
     margin-top: 25px;
     top: 0;
     line-height: 75px;
+    vertical-align: bottom;
+}
+
+.header .pull-right a,
+.header .pull-left a {
+    line-height: 1em;
     vertical-align: bottom;
 }
