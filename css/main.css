@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-    background-color: #FF3B4E;
+    background-color: #68add8;
 }
 
 .container {
@@ -92,6 +92,20 @@ body {
     color: black;
     padding: 12px 30px;
     width: 50%;
+}
+
+.display .price-total-label {
+    width: 60%;
+    margin-right: 125px;
+    background-color: white;
+    color: black;
+    padding: 12px 30px;
+}
+
+.display.row.total {
+    border-top: 1px solid white;
+    margin-top: 50px;
+    padding-top: 10px;
 }
 
 .display .notes-label {
