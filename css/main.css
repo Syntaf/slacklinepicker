@@ -136,10 +136,26 @@ body {
 /* end main.html css */
 
 /* add.html css */
+#backbutton {
+    margin-top: -40px;
+    margin-bottom: 15px;
+    border-radius: 0;
+    background-color: #2457AF;
+    color: white;
+    border: 1px solid #2457AF;
+    padding: 10px;
+}
+
+#backbutton:hover {
+    background-color: #1B95E0;
+    border: 1px solid #2457AF;
+}
+
 .dropdown-toggle {
     border-radius: 0;
     width: 100%;
     padding: 15px 0;
+    background-color: #2457AF;
 }
 
 .dropdown-menu {
@@ -159,6 +175,7 @@ body {
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
     background-color: #2457AF;
+    border-color: #2457AF;
 }
 
 .table-hover a {
