@@ -166,6 +166,10 @@ body {
     font-size: 16px;
 }
 
+.dropdown-menu li {
+    color: black;
+}
+
 .filters {
     margin-top: 10px;
     background-color: white;

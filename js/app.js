@@ -1,4 +1,4 @@
-var app = angular.module('SlacklinePicker', ['ngRoute']);
+var app = angular.module('SlacklinePicker', ['ngRoute', 'QuickList']);
 
 app.config(function($routeProvider) {
     $routeProvider
