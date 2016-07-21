@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-    background-color: #68add8;
+    background-color: #8ed5ff;
 }
 
 .container {
@@ -52,7 +52,7 @@ body {
 }
 
 .main {
-    color: white;
+    color: black;
     margin-top: 50px;
 }
 
@@ -74,6 +74,7 @@ body {
 .display .category-label {
     display: inline-block;
     background-color: #2457AF;
+    color: white;
     padding: 12px;
     width: 100%;
 }
@@ -111,13 +112,13 @@ body {
 .display .notes-label {
     display: inline-block;
     font-size: 12px;
-    color: white;
+    color: black;
     margin-left: 10px;
 }
 
 .display .add-item-label {
     font-size: 16px;
-    color: white;
+    color: black;
     text-decoration: none;
     display: inline;
     margin-left: 10px;
@@ -130,7 +131,7 @@ body {
 }
 
 .footer a {
-    color: white;
+    color: black;
 }
 
 /* end main.html css */
@@ -181,14 +182,21 @@ body {
     overflow: auto;
 }
 
-.table-hover tbody tr:hover td,
-.table-hover tbody tr:hover th {
-    background-color: #2457AF;
-    border-color: #2457AF;
+.table-hover th {
+    border-top: none !important;
+}
+
+.table-hover th {
+    border-bottom: 2px solid black;
+}
+
+.table-hover td {
+    font-weight: bold;
+    border-top: 1px solid black !important;
 }
 
 .table-hover a {
-    color: white;
+    color: black;
 }
 
 .amount {

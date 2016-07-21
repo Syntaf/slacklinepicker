@@ -9,13 +9,14 @@
                     Category
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li>Hardware</li>
-                    <li>Webbing</li>
-                    <li>Pulley</li>
+                    <li ng-repeat="category in api_categories">
+                        <a href="#/additem/{{ category.name }}">
+                            {{ pretty_categories[$index].name }}
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="filters">
-                <p>test</p>
             </div>
         </div>
         <div class="col-xs-9 col-md-9">

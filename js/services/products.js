@@ -3,10 +3,10 @@ app.factory('products', ['$http', function($http) {
         query: function(category, subcategory="") {
             var query_string = "";
             if(subcategory !== "") {
-                query_string = "/search?Category=" + category + "&Subcategory="
+                query_string = "/search?category=" + category + "&subcategory="
                     + subcategory;
             } else {
-                query_string = "/search?Category=" + category;
+                query_string = "/search?category=" + category;
             }
 
             console.log(query_string);

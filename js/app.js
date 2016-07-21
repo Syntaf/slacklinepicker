@@ -10,6 +10,14 @@ app.config(function($routeProvider) {
             controller: 'AddItemController',
             templateUrl: 'views/add.html'
         })
+        .when('/additem/:category', {
+            controller: 'AddItemController',
+            templateUrl: 'views/add.html'
+        })
+        .when('/additem/:category/:subcategory', {
+            controller: 'AddItemController',
+            templateUrl: 'views/add.html'
+        })
         .otherwise({
             redirectTo: '/'
         });

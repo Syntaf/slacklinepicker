@@ -2,10 +2,10 @@
     <table id="sortable" class="table-responsive table table-hover">
         <thread>
             <tr>
-                <th>Brand</th>
+                <th>Name</th>
                 <th>Category</th>
                 <th>Subcategory</th>
-                <th>Name</th>
+                <th>Brand</th>
                 <th>Price</th>
                 <th>Amount</th>
                 <th></th>
@@ -13,11 +13,11 @@
         </thread>
         <tbody>
             <tr quick-ng-repeat="product in info" quick-repeat-list="info">
-                <td>{{ product.Producer }}</td>
-                <td>{{ product.Category }}</td>
-                <td>{{ product.Subcategory }}</td>
-                <td>{{ product.Name }}</td>
-                <td>{{ product.Price | currency}}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.subcategory }}</td>
+                <td>{{ product.producer }}</td>
+                <td>{{ product.price | currency}}</td>
                 <td><input type="text" class="amount" /></td>
                 <td><a href="">Add</a></td>
             </tr>
