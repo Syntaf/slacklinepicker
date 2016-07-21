@@ -14,8 +14,8 @@
         <tbody>
             <tr quick-ng-repeat="product in info | filter :filters" quick-repeat-list="info">
                 <td>{{ product.name }}</td>
-                <td>{{ product.category }}</td>
-                <td>{{ product.subcategory }}</td>
+                <td>{{ product.category | capitalize}}</td>
+                <td>{{ product.subcategory | capitalize }}</td>
                 <td>{{ product.producer }}</td>
                 <td>{{ product.price | currency}}</td>
                 <td><input type="text" class="amount" /></td>

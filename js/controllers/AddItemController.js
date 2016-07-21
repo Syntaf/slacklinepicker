@@ -1,26 +1,20 @@
 app.controller('AddItemController', ['$scope', 'products', '$routeParams', function($scope, products, $routeParams) {
     if($routeParams.category != null) {
-        $('#spinner').show();
         if($routeParams.subcategory == null) {
+            console.log($routeParams.subcategory);
             $('#dropdown-subcategory').show();
             $scope.filters = {category : $routeParams.category}
-            products.success(function(data) {
-                $scope.lproducts = data;
-            });
         } else {
             $scope.filters = {
                 category : $routeParams.category,
                 subcategory: $routeParams.subcategory
             };
-            products.success(function(data) {
-                $scope.lproducts = data;
-            });
         }
-    } else {
-        products.success(function(data) {
-            $scope.lproducts = data;
-        });
     }
+    products.success(function(data) {
+        $scope.lproducts = data;
+        $scope.lproducts.loaded = true;
+    });
 
     // hard coded catagories for the add item page
     $scope.api_categories = [
