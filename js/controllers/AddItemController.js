@@ -1,18 +1,18 @@
 app.controller('AddItemController', ['$scope', 'products', '$routeParams', function($scope, products, $routeParams) {
     if($routeParams.category != null) {
         if($routeParams.subcategory == null) {
+            $('#spinner').show();
             products.query($routeParams.category).success(function(data) {
                 $scope.lproducts = data;
-                console.log('loaded!');
             });
         } else {
             products.query($routeParams.category, $routeParams.subcategory).success(function(data) {
                 $scope.lproducts = data;
-                console.log('loaded!');
             })
         }
     }
 
+    // hard coded catagories for the add item page
     $scope.api_categories = [
         {
             name: 'hardware',
@@ -29,6 +29,9 @@ app.controller('AddItemController', ['$scope', 'products', '$routeParams', funct
         }
     ];
 
+    // the following code will take the hooks above, and convert them into
+    // a format that can be put into labels so the user see's a 'pretty'
+    // version of the hook
     $scope.pretty_categories = [];
     $scope.api_categories.forEach(function(obj) {
         var pcategory = obj.name[0].toUpperCase() + obj.name.substr(1);
