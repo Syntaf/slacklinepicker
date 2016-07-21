@@ -173,7 +173,12 @@ body {
 .filters {
     margin-top: 10px;
     background-color: white;
-    height: 600px;
+    height: 640px;
+}
+
+.overflow {
+    height: 700px;
+    overflow: auto;
 }
 
 .table-hover tbody tr:hover td,
