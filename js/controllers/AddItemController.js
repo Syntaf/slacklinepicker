@@ -1,7 +1,8 @@
 app.controller('AddItemController', ['$scope', 'products', '$routeParams', function($scope, products, $routeParams) {
     if($routeParams.category != null) {
+        $('#spinner').show();
         if($routeParams.subcategory == null) {
-            $('#spinner').show();
+            $('#dropdown-subcategory').show();
             products.query($routeParams.category).success(function(data) {
                 $scope.lproducts = data;
             });
@@ -10,6 +11,7 @@ app.controller('AddItemController', ['$scope', 'products', '$routeParams', funct
                 $scope.lproducts = data;
             })
         }
+        $scope.lproducts = null;
     }
 
     // hard coded catagories for the add item page

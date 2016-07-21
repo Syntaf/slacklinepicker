@@ -2,7 +2,7 @@
     <a id="backbutton" class="btn btn-default" href="#/">Go Back</a>
     <div class="row">
         <div class="col-xs-3 col-md-3">
-            <div class="dropdown">
+            <div class="dropdown" ng-click="categoryClicked=true">
                 <button class="btn btn-primary dropdown-toggle"
                         type="button"
                         data-toggle="dropdown">
@@ -14,6 +14,17 @@
                             {{ pretty_categories[$index].name }}
                         </a>
                     </li>
+                </ul>
+            </div>
+            <div class="dropdown" id="dropdown-subcategory">
+                <button class="btn btn-primary dropdown-toggle"
+                        type="button"
+                        data-toggle="dropdown">
+                    Subcategory
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li>Test1</li>
+                    <li>Test2</li>
                 </ul>
             </div>
             <div class="filters">

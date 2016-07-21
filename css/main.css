@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-    background-color: #8ed5ff;
+    background-color: #73D2DE;
 }
 
 .container {
@@ -76,13 +76,17 @@ body {
     background-color: #2457AF;
     color: white;
     padding: 12px;
-    width: 100%;
+}
+
+.display .subcategory {
+    background-color: #D81159;
+    display: inline-block;
 }
 
 .display .item-label {
     display: inline-block;
     background-color: white;
-    color: #009ffc;
+    color: #246A73;
     padding: 12px 30px;
     width: 100%;
 }
@@ -157,6 +161,11 @@ body {
 #backbutton:hover {
     background-color: #1B95E0;
     border: 1px solid #2457AF;
+}
+
+#dropdown-subcategory {
+    display: none;
+    margin-top: 10px;
 }
 
 .dropdown-toggle {
