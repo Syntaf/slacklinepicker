@@ -12,7 +12,7 @@
             </tr>
         </thread>
         <tbody>
-            <tr quick-ng-repeat="product in info" quick-repeat-list="info">
+            <tr quick-ng-repeat="product in info | filter :filters" quick-repeat-list="info">
                 <td>{{ product.name }}</td>
                 <td>{{ product.category }}</td>
                 <td>{{ product.subcategory }}</td>

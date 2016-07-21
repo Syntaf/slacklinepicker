@@ -3,15 +3,23 @@ app.controller('AddItemController', ['$scope', 'products', '$routeParams', funct
         $('#spinner').show();
         if($routeParams.subcategory == null) {
             $('#dropdown-subcategory').show();
-            products.query($routeParams.category).success(function(data) {
+            $scope.filters = {category : $routeParams.category}
+            products.success(function(data) {
                 $scope.lproducts = data;
             });
         } else {
-            products.query($routeParams.category, $routeParams.subcategory).success(function(data) {
+            $scope.filters = {
+                category : $routeParams.category,
+                subcategory: $routeParams.subcategory
+            };
+            products.success(function(data) {
                 $scope.lproducts = data;
-            })
+            });
         }
-        $scope.lproducts = null;
+    } else {
+        products.success(function(data) {
+            $scope.lproducts = data;
+        });
     }
 
     // hard coded catagories for the add item page
