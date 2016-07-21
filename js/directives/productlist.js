@@ -2,8 +2,7 @@ app.directive('productlist', function() {
     return {
         restrict: 'E',
         scope: {
-            info: '=',
-            filters: '='
+            info: '='
         },
         templateUrl: 'js/directives/productlist.html',
         link: function(scope, element, attrs) {

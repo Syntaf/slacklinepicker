@@ -1,7 +1,6 @@
-app.controller('AddItemController', ['$scope', 'products', '$routeParams', function($scope, products, $routeParams) {
+app.controller('AddItemController', ['$scope', '$filter', 'products', '$routeParams', function($scope, $filter, products, $routeParams) {
     if($routeParams.category != null) {
         if($routeParams.subcategory == null) {
-            console.log($routeParams.subcategory);
             $('#dropdown-subcategory').show();
             $scope.filters = {category : $routeParams.category}
         } else {
@@ -9,10 +8,21 @@ app.controller('AddItemController', ['$scope', 'products', '$routeParams', funct
                 category : $routeParams.category,
                 subcategory: $routeParams.subcategory
             };
+            /*
+            for(var i = 0; i < $scope.api_categories.length; i++) {
+                if($scope.api_categories[i].name === $routeParams.category) {
+                    $scope.category = $scope.api_categories[i].name;
+                    $scope.subcategories = $scope.api_categories[i].subcategories;
+                    $scope.pretty_subcategories = $scope.pretty_categories[i];
+                }
+            }
+            */
         }
     }
+
     products.success(function(data) {
         $scope.lproducts = data;
+        $scope.lproducts = $filter('filter')($scope.lproducts, $scope.filters);
         $scope.lproducts.loaded = true;
     });
 
