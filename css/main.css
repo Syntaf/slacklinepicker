@@ -191,6 +191,13 @@ body {
     margin-top: 10px;
     background-color: white;
     height: 500px;
+    padding: 5px 10px;
+    font-size: 13px;
+}
+
+#product-link {
+    display: block;
+    margin-top: 10px;
 }
 
 .overflow {
@@ -209,6 +216,10 @@ body {
 .table-hover td {
     font-weight: bold;
     border-top: 1px solid black !important;
+}
+
+.table-hover td:hover {
+    cursor: pointer;
 }
 
 .table-hover a {

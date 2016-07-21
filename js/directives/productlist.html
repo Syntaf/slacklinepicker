@@ -12,7 +12,9 @@
             </tr>
         </thread>
         <tbody>
-            <tr quick-ng-repeat="product in info | filter :filters" quick-repeat-list="info">
+            <tr quick-ng-repeat="product in info | filter :filters"
+                quick-repeat-list="info"
+                ng-click="fillDescription(product)">
                 <td>{{ product.name }}</td>
                 <td>{{ product.category | capitalize}}</td>
                 <td>{{ product.subcategory | capitalize }}</td>
