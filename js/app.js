@@ -14,3 +14,7 @@ app.config(function($routeProvider) {
             redirectTo: '/'
         });
 });
+
+$(document).ready(function() {
+    $('#sortable').dataTable();
+});

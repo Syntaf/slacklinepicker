@@ -1,8 +1,10 @@
 <div class="overflow">
-    <table class="table-responsive table table-hover">
+    <table id="sortable" class="table-responsive table table-hover">
         <thread>
             <tr>
                 <th>Brand</th>
+                <th>Category</th>
+                <th>Subcategory</th>
                 <th>Name</th>
                 <th>Price</th>
                 <th>Amount</th>
@@ -12,8 +14,10 @@
         <tbody>
             <tr quick-ng-repeat="product in info" quick-repeat-list="info">
                 <td>{{ product.Producer }}</td>
+                <td>{{ product.Category }}</td>
+                <td>{{ product.Subcategory }}</td>
                 <td>{{ product.Name }}</td>
-                <td>{{ product.Price }}</td>
+                <td>{{ product.Price | currency}}</td>
                 <td><input type="text" class="amount" /></td>
                 <td><a href="">Add</a></td>
             </tr>
