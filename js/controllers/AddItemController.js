@@ -1,5 +1,5 @@
 app.controller('AddItemController', ['$scope', '$filter', 'products', '$routeParams',
-function($scope, $filter, products, $routeParams) {
+'$sessionStorage', function($scope, $filter, products, $routeParams, $sessionStorage) {
 
     // hard coded catagories for the add item page
     $scope.api_categories = [
@@ -28,6 +28,16 @@ function($scope, $filter, products, $routeParams) {
             updateOnContentResize: true
         },
         scrollInertia: 900
+    };
+
+    $scope.isClicked = function(idx) {
+        console.log('here');
+        if($.inArray
+            (idx, $sessionStorage.clicked) != -1) {
+            return true;
+        } else {
+            return false;
+        }
     };
 
     // if the controller was entered with a route (e.g. #/additem/HARDWARE)

@@ -4,7 +4,8 @@ function($sessionStorage) {
         restrict: 'E',
         scope: {
             info: '=',
-            config: '='
+            config: '=',
+            clicked: '&'
         },
         templateUrl: 'js/directives/productlist.html',
         link: function(scope, element, attrs) {
@@ -25,8 +26,10 @@ function($sessionStorage) {
                     product.amount = amount;
                     if($sessionStorage.kitConfiguration == null) {
                         $sessionStorage.kitConfiguration = [product];
+                        $sessionStorage.clicked = [idx];
                     } else {
                         $sessionStorage.kitConfiguration.push(product);
+                        $sessionStorage.clicked.push(idx);
                     }
                 }
             };

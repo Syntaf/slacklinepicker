@@ -270,6 +270,9 @@ body {
 
 .amount {
     width: 50px;
+    text-align: center;
+    color: black;
+    font-size: 12px;
 }
 
 .red-border {

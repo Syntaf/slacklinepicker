@@ -20,8 +20,19 @@
                 <td>{{ product.subcategory | capitalize }}</td>
                 <td>{{ product.producer }}</td>
                 <td>{{ product.price | currency}}</td>
-                <td><input type="text" class="amount" id="amount-box{{ $index }}"/></td>
-                <td><p class="add-button" ng-click="addToKit($index, product)">Add</p></td>
+                <td>
+                    <input type="text"
+                           class="amount"
+                           id="amount-box{{ $index }}"
+                           value="1"/>
+                </td>
+                <td>
+                    <span ng-click="addToKit($index, product)"
+                          class="glyphicon"
+                          ng-class="{true:'glyphicon-ok', false:'glyphicon-plus'}[clicked({idx: $index})]"
+                          id="glyphicon{{ $index }}">
+                    </span>
+                </td>
             </tr>
         </tbody>
     </table>

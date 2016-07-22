@@ -38,7 +38,10 @@
             </div>
         </div>
         <div class="col-xs-9 col-md-9">
-            <productlist info="lproducts" config=scrollbarConfig></productlist>
+            <productlist info="lproducts"
+                         config="scrollbarConfig"
+                         clicked="isClicked(idx)">
+            </productlist>
         </div>
         <img id="spinner" src="img/loader.gif"/>
     </div>
