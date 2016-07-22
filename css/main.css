@@ -141,6 +141,13 @@ body {
     padding-top: 10px;
 }
 
+.display .glyphicon-trash {
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
 .display .notes-label {
     display: inline-block;
     font-size: 12px;

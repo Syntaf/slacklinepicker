@@ -13,4 +13,21 @@ function($scope, $sessionStorage) {
         $scope.kit = null;
         $scope.total = 0;
     }
+
+    $scope.removeItem = function(id) {
+        $sessionStorage.kitConfiguration =
+        $.grep($sessionStorage.kitConfiguration, function(e) {
+            if(e.id == id) {
+                $scope.total -= e.price * e.amount;
+            }
+            return e.id != id;
+        });
+
+        $sessionStorage.clicked =
+        $.grep($sessionStorage.clicked, function(e) {
+            return e != id;
+        });
+
+        $scope.kit = $sessionStorage.kitConfiguration;
+    }
 }]);

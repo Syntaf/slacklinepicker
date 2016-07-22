@@ -13,7 +13,8 @@
         </div>
         <div class="col-xs-3 col-md-3 right">
             <p class="price-label">{{ item.price * item.amount | currency}}</p>
-            <a href="" class="notes-label">Show Notes</a>
+            <a href="" class="notes-label">Add Notes</a>
+            <span ng-click="removeItem(item.id)" class="glyphicon glyphicon-trash"></span>
         </div>
     </div>
     <div class="row display">
@@ -28,7 +29,8 @@
         <p class="create-new" ng-click="wipeKit()">New Kit</p>
         <div class="col-xs-3 col-md-3 pull-right right">
             <p class="price-total-label">{{ total | currency }}</p>
-            <p class="notes-label hide-this">Show Notes</p>
+            <p class="notes-label hide-this">Add Notes</p>
+            <span class="glyphicon glyphicon-trash hide-this"></span>
         </div>
         <div class="pull-right">
             <h3>Total:</h3>
