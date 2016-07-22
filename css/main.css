@@ -71,6 +71,16 @@ body {
     text-align: right;
 }
 
+.display .create-new {
+    text-align: left;
+    font-size: 12px;
+}
+
+.display .create-new:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .display .category-label {
     display: inline-block;
     background-color: #2457AF;

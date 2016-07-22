@@ -5,4 +5,8 @@ app.controller('MainController', ['$scope', '$cookies', 'currentKit', function($
     if($scope.kit != null) {
         currentKit = $cookies.getObject('kitConfiguration')
     }
+    $scope.wipeKit = function() {
+        $cookies.remove('kitConfiguration');
+        $scope.kit = null;
+    }
 }]);
