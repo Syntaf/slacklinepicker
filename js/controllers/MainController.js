@@ -1,10 +1,9 @@
-app.controller('MainController', ['$scope', 'currentKit', '$sessionStorage',
-function($scope, currentKit, $sessionStorage) {
+app.controller('MainController', ['$scope', '$sessionStorage',
+function($scope, $sessionStorage) {
 
-    console.log($sessionStorage);
     $scope.kit = $sessionStorage.kitConfiguration;
     if($scope.kit != null) {
-        currentKit = $sessionStorage.kitConfiguration;
+        //currentKit = $sessionStorage.kitConfiguration;
     }
     $scope.wipeKit = function() {
         $sessionStorage.$reset();

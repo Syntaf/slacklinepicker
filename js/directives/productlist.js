@@ -1,5 +1,5 @@
-app.directive('productlist', ['currentKit', '$sessionStorage',
-function(currentKit, $sessionStorage) {
+app.directive('productlist', ['$sessionStorage',
+function($sessionStorage) {
     return {
         restrict: 'E',
         scope: {
@@ -23,8 +23,11 @@ function(currentKit, $sessionStorage) {
                 } else {
                     $('#amount-box' + idx).removeClass('red-border');
                     product.amount = amount;
-                    currentKit.push(product);
-                    $sessionStorage.kitConfiguration = currentKit;
+                    if($sessionStorage.kitConfiguration == null) {
+                        $sessionStorage.kitConfiguration = [product];
+                    } else {
+                        $sessionStorage.kitConfiguration.push(product);
+                    }
                 }
             };
         }

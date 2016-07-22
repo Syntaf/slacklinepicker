@@ -28,8 +28,6 @@ app.config(['$sessionStorageProvider', '$routeProvider', function($sessionStorag
         });
 }]);
 
-app.value('currentKit', []);
-
 app.filter('capitalize', function() {
     return function(input) {
         return input.replace('_', ' ').replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
