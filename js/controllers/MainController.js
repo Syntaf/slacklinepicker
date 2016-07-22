@@ -1,12 +1,13 @@
-app.controller('MainController', ['$scope', '$cookies', 'currentKit', function($scope, $cookies, currentKit) {
+app.controller('MainController', ['$scope', 'currentKit', '$sessionStorage',
+function($scope, currentKit, $sessionStorage) {
 
-    $scope.kit = $cookies.getObject('kitConfiguration');
-    console.log($scope.kit);
+    console.log($sessionStorage);
+    $scope.kit = $sessionStorage.kitConfiguration;
     if($scope.kit != null) {
-        currentKit = $cookies.getObject('kitConfiguration')
+        currentKit = $sessionStorage.kitConfiguration;
     }
     $scope.wipeKit = function() {
-        $cookies.remove('kitConfiguration');
+        $sessionStorage.$reset();
         $scope.kit = null;
     }
 }]);

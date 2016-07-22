@@ -7,10 +7,12 @@
             <p class="category-label subcategory">{{ item.subcategory }}</p>
         </div>
         <div class="col-xs-5 col-md-5 left">
-            <a href="" class="item-label">{{ item.name }}</a>
+            <a href="" class="item-label">
+                {{ item.name }}<span ng-if="item.amount > 1"> x {{ item.amount }}</span>
+            </a>
         </div>
         <div class="col-xs-3 col-md-3 right">
-            <p class="price-label">{{ item.price }}</p>
+            <p class="price-label">{{ item.price * item.amount }}</p>
             <a href="" class="notes-label">Show Notes</a>
         </div>
     </div>

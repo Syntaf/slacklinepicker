@@ -1,6 +1,6 @@
-var app = angular.module('SlacklinePicker', ['ngRoute', 'QuickList', 'ngCookies']);
+var app = angular.module('SlacklinePicker', ['ngRoute', 'QuickList', 'ngStorage']);
 
-app.config(function($routeProvider) {
+app.config(['$sessionStorageProvider', '$routeProvider', function($sessionStorageProvider, $routeProvider) {
     $routeProvider
         .when('/', {
             controller: 'MainController',
@@ -21,9 +21,9 @@ app.config(function($routeProvider) {
         .otherwise({
             redirectTo: '/'
         });
-});
+}]);
 
-app.value('currentKit', new Array());
+app.value('currentKit', []);
 
 app.filter('capitalize', function() {
     return function(input) {
