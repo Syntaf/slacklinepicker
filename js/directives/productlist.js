@@ -20,6 +20,7 @@ app.directive('productlist', ['$cookies', 'currentKit', function($cookies, curre
                     $('#amount-box' + idx).addClass('red-border');
                 } else {
                     $('#amount-box' + idx).removeClass('red-border');
+                    product.amount = amount;
                     currentKit.push(product);
                     $cookies.putObject('kitConfiguration', currentKit);
                 }
