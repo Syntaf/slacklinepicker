@@ -117,11 +117,22 @@ body {
 }
 
 .display .price-total-label {
-    width: 60%;
-    margin-right: 125px;
+    text-align: left;
     background-color: white;
     color: black;
     padding: 12px 30px;
+    width: 50%;
+    height: 50px;
+    display: inline-block;
+}
+
+.display .price-total-header {
+    display: inline-block;
+}
+
+.hide-this {
+    background-color: #5BC0EB;
+    color: #5BC0EB !important;
 }
 
 .display.row.total {

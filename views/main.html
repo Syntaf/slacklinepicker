@@ -26,8 +26,12 @@
     </div>
     <div class="row display total">
         <p class="create-new" ng-click="wipeKit()">New Kit</p>
+        <div class="col-xs-3 col-md-3 pull-right right">
+            <p class="price-total-label">{{ total | currency }}</p>
+            <p class="notes-label hide-this">Show Notes</p>
+        </div>
         <div class="pull-right">
-            <p class="price-total-label">$500</p>
+            <h3>Total:</h3>
         </div>
     </div>
 </div>
