@@ -1,18 +1,18 @@
 <div class="container-small">
     <div class="row display" ng-repeat="item in kit">
         <div class="col-xs-2 col-md-2 center">
-            <p class="category-label">{{ item.category }}</p>
+            <p class="category-label">{{ item.category | capitalize}}</p>
         </div>
         <div class="col-xs-2 col-md-2 center">
-            <p class="category-label subcategory">{{ item.subcategory }}</p>
+            <p class="category-label subcategory">{{ item.subcategory | capitalize}}</p>
         </div>
         <div class="col-xs-5 col-md-5 left">
-            <a href="" class="item-label">
+            <a href="{{ item.link }}" class="item-label">
                 {{ item.name }}<span ng-if="item.amount > 1"> x {{ item.amount }}</span>
             </a>
         </div>
         <div class="col-xs-3 col-md-3 right">
-            <p class="price-label">{{ item.price * item.amount }}</p>
+            <p class="price-label">{{ item.price * item.amount | currency}}</p>
             <a href="" class="notes-label">Show Notes</a>
         </div>
     </div>
