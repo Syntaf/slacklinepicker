@@ -1,8 +1,9 @@
-app.directive('productlist', function() {
+app.directive('productlist', ['$cookies', 'currentKit', function($cookies, currentKit) {
     return {
         restrict: 'E',
         scope: {
-            info: '='
+            info: '=',
+            selected: '='
         },
         templateUrl: 'js/directives/productlist.html',
         link: function(scope, element, attrs) {
@@ -12,6 +13,17 @@ app.directive('productlist', function() {
                     '<a target="_blank" href=' + product.link +
                     ' id="product-link">Product Page</a>');
             }
+
+            scope.addToKit = function(idx, product) {
+                var amount = $('#amount-box' + idx).val();
+                if(amount == 0) {
+                    $('#amount-box' + idx).addClass('red-border');
+                } else {
+                    $('#amount-box' + idx).removeClass('red-border');
+                    currentKit.push(product);
+                    $cookies.putObject('kitConfiguration', currentKit);
+                }
+            };
         }
     };
-});
+}]);

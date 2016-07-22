@@ -1,4 +1,4 @@
-var app = angular.module('SlacklinePicker', ['ngRoute', 'QuickList']);
+var app = angular.module('SlacklinePicker', ['ngRoute', 'QuickList', 'ngCookies']);
 
 app.config(function($routeProvider) {
     $routeProvider
@@ -22,6 +22,8 @@ app.config(function($routeProvider) {
             redirectTo: '/'
         });
 });
+
+app.value('currentKit', new Array());
 
 app.filter('capitalize', function() {
     return function(input) {
