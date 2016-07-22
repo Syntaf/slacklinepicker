@@ -31,7 +31,6 @@ app.controller('AddItemController', ['$scope', '$filter', 'products', '$routePar
     };
 
     $scope.isClicked = function(idx) {
-        console.log('here');
         if($.inArray
             (idx, $sessionStorage.clicked) != -1) {
             return true;

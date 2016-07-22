@@ -29,7 +29,7 @@
                 <td>
                     <span ng-click="addToKit($index, product)"
                           class="glyphicon"
-                          ng-class="{true:'glyphicon-ok', false:'glyphicon-plus'}[clicked({idx: $index})]"
+                          ng-class="{true:'glyphicon-ok', false:'glyphicon-plus'}[clicked({idx: product.id})]"
                           id="glyphicon{{ $index }}">
                     </span>
                 </td>

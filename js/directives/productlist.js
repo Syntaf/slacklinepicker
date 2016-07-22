@@ -24,12 +24,13 @@ function($sessionStorage) {
                 } else {
                     $('#amount-box' + idx).removeClass('red-border');
                     product.amount = amount;
+                    console.log(product);
                     if($sessionStorage.kitConfiguration == null) {
                         $sessionStorage.kitConfiguration = [product];
-                        $sessionStorage.clicked = [idx];
+                        $sessionStorage.clicked = [product.id];
                     } else {
                         $sessionStorage.kitConfiguration.push(product);
-                        $sessionStorage.clicked.push(idx);
+                        $sessionStorage.clicked.push(product.id);
                     }
                 }
             };
