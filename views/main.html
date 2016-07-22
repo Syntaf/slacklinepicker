@@ -7,7 +7,7 @@
             <p class="category-label subcategory">{{ item.subcategory | capitalize}}</p>
         </div>
         <div class="col-xs-5 col-md-5 left">
-            <a href="{{ item.link }}" class="item-label">
+            <a href="{{ item.link }}" target="_" class="item-label">
                 {{ item.name }}<span ng-if="item.amount > 1"> x {{ item.amount }}</span>
             </a>
         </div>

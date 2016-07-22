@@ -11,5 +11,6 @@ function($scope, $sessionStorage) {
     $scope.wipeKit = function() {
         $sessionStorage.$reset();
         $scope.kit = null;
+        $scope.total = 0;
     }
 }]);
