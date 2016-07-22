@@ -12,7 +12,7 @@
                     <li><a href="#/additem/">None</a></li>
                     <li ng-repeat="category in api_categories">
                         <a href="#/additem/{{ category.name }}">
-                            {{ pretty_categories[$index].name }}
+                            {{ category.name | capitalize }}
                         </a>
                     </li>
                 </ul>
@@ -27,18 +27,18 @@
                     <li><a href="#/additem/{{ currentCategory.name }}">None</a></li>
                     <li ng-repeat="subcategory in currentCategory.subcategories">
                         <a href="#/additem/{{ currentCategory.name }}/{{ subcategory }}">
-                            {{ prettyCurrentCategories.subcategories[$index] }}
+                            {{ subcategory | capitalize }}
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="filters">
-                <p>Description:</p>
+                <h5 id="title-box"> </h5>
                 <p id="description-box"></p>
             </div>
         </div>
         <div class="col-xs-9 col-md-9">
-            <productlist info="lproducts"></productlist>
+            <productlist info="lproducts" config=scrollbarConfig></productlist>
         </div>
         <img id="spinner" src="img/loader.gif"/>
     </div>

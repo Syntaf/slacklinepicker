@@ -4,11 +4,12 @@ function(currentKit, $sessionStorage) {
         restrict: 'E',
         scope: {
             info: '=',
-            selected: '='
+            config: '='
         },
         templateUrl: 'js/directives/productlist.html',
         link: function(scope, element, attrs) {
             scope.fillDescription = function(product) {
+                $('#title-box').text(product.name);
                 $('#description-box').text(product.description);
                 $('#description-box').append(
                     '<a target="_blank" href=' + product.link +

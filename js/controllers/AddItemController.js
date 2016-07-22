@@ -18,29 +18,17 @@ function($scope, $filter, products, $routeParams) {
         }
     ];
 
-    // the following code will take the hooks above, and convert them into
-    // a format that can be put into labels so the user see's a 'pretty'
-    // version of the hook
-    $scope.pretty_categories = [];
-    $scope.api_categories.forEach(function(obj) {
-        var pcategory = obj.name[0].toUpperCase() + obj.name.substr(1);
-        var psubcategories = [];
-        obj.subcategories.forEach(function(sub) {
-            psubcategories.push(
-                sub.split('_').
-                map(function(word) {
-                    return word[0].toUpperCase() + word.substr(1);
-                })
-                .join(' ')
-            );
-        });
-        $scope.pretty_categories.push(
-            {
-                name: pcategory,
-                subcategories: psubcategories
-            }
-        );
-    });
+    $scope.scrollbarConfig = {
+        autoHideScrollbar: false,
+        theme: 'light',
+        mouseWheel: {
+            scrollAmount: 300
+        },
+        advanced:{
+            updateOnContentResize: true
+        },
+        scrollInertia: 900
+    };
 
     // if the controller was entered with a route (e.g. #/additem/HARDWARE)
     if($routeParams.category != null) {
@@ -61,7 +49,6 @@ function($scope, $filter, products, $routeParams) {
         for(var i = 0; i < $scope.api_categories.length; i++) {
             if($scope.api_categories[i].name === $routeParams.category) {
                 $scope.currentCategory = $scope.api_categories[i];
-                $scope.prettyCurrentCategories = $scope.pretty_categories[i];
             }
         }
     }

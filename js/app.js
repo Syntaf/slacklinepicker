@@ -1,4 +1,9 @@
-var app = angular.module('SlacklinePicker', ['ngRoute', 'QuickList', 'ngStorage']);
+var app = angular.module('SlacklinePicker', [
+    'ngRoute',
+    'QuickList',
+    'ngStorage',
+    'ngScrollbars'
+]);
 
 app.config(['$sessionStorageProvider', '$routeProvider', function($sessionStorageProvider, $routeProvider) {
     $routeProvider
