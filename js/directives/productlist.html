@@ -2,11 +2,11 @@
     <table st-table="displayInfo" st-safe-src="info" class="table-responsive table table-hover">
         <thread>
             <tr>
-                <th class="hover-pointer" st-sort="name">Name</th>
-                <th class="hover-pointer"st-sort="category">Category</th>
-                <th class="hover-pointer"st-sort="subcategory">Subcategory</th>
-                <th class="hover-pointer"st-sort="brand">Brand</th>
-                <th class="hover-pointer"st-sort="price">Price</th>
+                <th st-sort="name"><span class="hover-pointer">Name</span></th>
+                <th st-sort="category"><span class="hover-pointer">Category</span></th>
+                <th st-sort="subcategory"><span class="hover-pointer">Subcategory</span></th>
+                <th st-sort="brand"><span class="hover-pointer">Brand</span></th>
+                <th st-sort="price"><span class="hover-pointer">Price</span></th>
                 <th>Amount</th>
                 <th></th>
             </tr>
@@ -26,9 +26,13 @@
                            value="1"/>
                 </td>
                 <td>
-                    <span ng-click="addToKit($index, product)"
-                          class="glyphicon"
-                          ng-class="{true:'glyphicon-ok', false:'glyphicon-plus'}[clicked({idx: product.id})]"
+                    <span ng-if="clicked({idx: product.id}) == true"
+                          class="glyphicon glyphicon-ok"
+                          id="glyphicon{{ $index }}">
+                    </span>
+                    <span ng-if="clicked({idx: product.id}) == false"
+                          ng-click="addToKit($index, product)"
+                          class="glyphicon glyphicon-plus"
                           id="glyphicon{{ $index }}">
                     </span>
                 </td>
