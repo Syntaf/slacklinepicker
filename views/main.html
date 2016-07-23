@@ -1,4 +1,4 @@
-<div class="container-small">
+<div ng-init="addNotesChecker = false" class="container-small">
     <div class="row display" ng-repeat="item in kit | orderBy : ['-category','subcategory']">
         <div class="col-xs-2 col-md-2 center">
             <p class="category-label">{{ item.category | capitalize}}</p>
@@ -23,7 +23,7 @@
             </p>
 
             <!-- If sharing: change 'Add' to 'Show', and hide delete button -->
-            <a ng-if="freeze != true" href="" class="notes-label">Add Notes</a>
+            <p ng-if="freeze != true" ng-click="toggleNotes(item.id, $index)" class="notes-label">Add Notes</p>
             <a ng-if="freeze" href="" class="notes-label">Show Notes</a>
             <span ng-if="freeze != true" ng-click="removeItem(item.id)" class="glyphicon glyphicon-trash"></span>
 
@@ -76,3 +76,12 @@
     </modal-dialog>
 
 </div>
+
+<modal-dialog show="addNotesChecker" dialog-title="Add Product Notes" width="500px"
+              on-close="saveNotes()">
+    <p>Add notes about this product for others to view when shared:</p>
+    <div class="form-group">
+        <label for="comment" class="form-notes-title">Notes:</label>
+        <textarea class="form-control" rows="5" id="notes"></textarea>
+    </div>
+</modal-dialog>

@@ -325,3 +325,12 @@ body {
 .hover-pointer:hover {
     cursor: pointer;
 }
+
+.form-notes-title {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+#notes {
+    border-radius: 0;
+}

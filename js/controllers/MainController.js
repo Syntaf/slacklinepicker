@@ -91,5 +91,25 @@ $routeParams, $window) {
         $scope.showCopiedLabel = function () {
             $('#show-copied').css('display','inline-block').delay(1500).fadeOut();
         }
+
+        $scope.toggleNotes = function(id, idx) {
+            $scope.addNotesChecker = true;
+            $scope.notesId = id;
+            var notes = $sessionStorage.kitConfiguration[idx].notes;
+            if( notes != null) {
+                $('#notes').val(notes)
+            }
+        }
+
+        $scope.saveNotes = function() {
+            if($('#notes').val() == '') return;
+            $sessionStorage.kitConfiguration.forEach(function(x) {
+                if(x.id == $scope.notesId) {
+                    x.notes = $('#notes').val();
+                    console.log(x.notes);
+                }
+            });
+            $('#notes').val('');
+        }
     }
 }]);
