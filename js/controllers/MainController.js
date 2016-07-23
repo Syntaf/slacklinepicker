@@ -22,8 +22,8 @@ $routeParams, $window) {
                 var found = false;
                 $scope.productListById.forEach(function(x) {
                     if(x.id == e.id) {
-                        console.log('match');
                         e.amount = x.amount;
+                        $scope.total += e.price * e.amount;
                         found = true;
                     }
                 });

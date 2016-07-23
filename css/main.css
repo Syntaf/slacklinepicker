@@ -74,6 +74,8 @@ body {
 .display .create-new {
     text-align: left;
     font-size: 12px;
+    text-decoration: none;
+    color: black;
 }
 
 .display .create-new:hover {
