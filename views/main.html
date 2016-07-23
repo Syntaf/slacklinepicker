@@ -59,5 +59,20 @@
 </div>
 <div class="footer">
     <!-- no need to reshare shared build -->
-    <a ng-if="freeze != true" href="">Share this kit</a>
+    <p ng-if="freeze != true" ng-click="generateShareableHook()" class="share-this">
+        Share this kit
+    </p>
+
+    <modal-dialog show='shareLink' dialog-title='Slackline Kit Picker' height='150px' width='450px'>
+        <p class="shareable-link-text">http://localhost:8080/#/share/{{ link }}</p>
+        <div class="pull-left">
+            <button clipboard href="" class="btn btn-default" id="copy"
+                    text="$window.location.hostname + link"
+                    ng-click="showCopiedLabel()">
+                Copy To Clipboard
+            </button>
+            <p class="show-hide" id="show-copied">Copied!</p>
+        </div>
+    </modal-dialog>
+
 </div>

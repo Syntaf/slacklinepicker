@@ -5,6 +5,11 @@ $routeParams, $window) {
     $scope.total = 0;
 
     if($routeParams.configuration != null) {
+        /*
+        *  -- Shareable section --
+        *  This section is entered if a user uses a shareable link
+        *  to view someone else's configuration
+        */
         $scope.freeze = true;
         $scope.productListById =
             parseHook($routeParams.configuration);
@@ -33,6 +38,11 @@ $routeParams, $window) {
             console.log($scope.kit);
         });
     } else {
+        /*
+         *  -- Main App Section --
+         *  If a user visits the webpage normalling, this is the section
+         *  entered.
+        */
         $scope.kit = $sessionStorage.kitConfiguration;
         if($scope.kit != null) {
             $scope.kit.forEach(function(data) {
@@ -60,6 +70,25 @@ $routeParams, $window) {
             });
 
             $scope.kit = $sessionStorage.kitConfiguration;
+        }
+
+        $scope.generateShareableHook = function() {
+            $scope.link = "";
+            $scope.kit.forEach(function(product) {
+                $scope.link += product.id;
+                if(product.amount > 1) {
+                    $scope.link += '&' + product.amount;
+                }
+                $scope.link += '-';
+            });
+            $scope.link = $scope.link.slice(0, -1);
+            $scope.rawLink = $window.location.hostname + '/' +
+                $window.location.hash + $scope.link;
+            $scope.shareLink = true;
+        }
+
+        $scope.showCopiedLabel = function () {
+            $('#show-copied').css('display','inline-block').delay(1500).fadeOut();
         }
     }
 }]);

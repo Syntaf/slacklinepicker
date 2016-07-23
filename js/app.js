@@ -2,7 +2,9 @@ var app = angular.module('SlacklinePicker', [
     'ngRoute',
     'QuickList',
     'ngStorage',
-    'ngScrollbars'
+    'ngScrollbars',
+    'ngModal',
+    'angular-clipboard'
 ]);
 
 app.config(['$sessionStorageProvider', '$routeProvider', function($sessionStorageProvider, $routeProvider) {
@@ -11,7 +13,7 @@ app.config(['$sessionStorageProvider', '$routeProvider', function($sessionStorag
             controller: 'MainController',
             templateUrl: 'views/main.html'
         })
-        .when('/k/:configuration', {
+        .when('/share/:configuration', {
             controller: 'MainController',
             templateUrl: 'views/main.html'
         })

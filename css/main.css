@@ -58,6 +58,25 @@ body {
 
 /* main.html css */
 
+.shareable-link-text {
+    display: inline-block;
+    text-decoration: underline;
+}
+
+#copy {
+    display: inline;
+    background-color: #8F2D56;
+    border-radius: 0;
+    color: white;
+}
+
+#show-copied {
+    color: white;
+    display: none;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
 .display {
     text-align: center;
     font-size: 16px;
@@ -174,6 +193,11 @@ body {
 
 .footer a {
     color: black;
+}
+
+.footer .share-this:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 /* end main.html css */
