@@ -11,6 +11,10 @@ app.config(['$sessionStorageProvider', '$routeProvider', function($sessionStorag
             controller: 'MainController',
             templateUrl: 'views/main.html'
         })
+        .when('/k/:configuration', {
+            controller: 'MainController',
+            templateUrl: 'views/main.html'
+        })
         .when('/additem', {
             controller: 'AddItemController',
             templateUrl: 'views/add.html'

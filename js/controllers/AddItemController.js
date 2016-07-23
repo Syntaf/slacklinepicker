@@ -1,5 +1,10 @@
 app.controller('AddItemController', ['$scope', '$filter', 'products', '$routeParams',
 '$sessionStorage', function($scope, $filter, products, $routeParams, $sessionStorage) {
+    // load data to be stored, and filter data based upon the filters passed
+    products.success(function(data) {
+        $scope.lproducts = data;
+        $scope.lproducts = $filter('filter')($scope.lproducts, $scope.filters);
+    });
 
     // hard coded catagories for the add item page
     $scope.api_categories = [
@@ -61,12 +66,4 @@ app.controller('AddItemController', ['$scope', '$filter', 'products', '$routePar
             }
         }
     }
-
-    // load data to be stored, and filter data based upon the filters passed
-    products.success(function(data) {
-        $scope.lproducts = data;
-        $scope.lproducts = $filter('filter')($scope.lproducts, $scope.filters);
-    });
-
-
 }]);
