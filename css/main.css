@@ -59,7 +59,7 @@ body {
 /* main.html css */
 
 .shareable-link-text {
-    display: inline-block;
+    display: block;
     text-decoration: underline;
 }
 

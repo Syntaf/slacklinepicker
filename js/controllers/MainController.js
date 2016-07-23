@@ -73,6 +73,7 @@ $routeParams, $window) {
         }
 
         $scope.generateShareableHook = function() {
+            if($scope.kit == null) return;
             $scope.link = "";
             $scope.kit.forEach(function(product) {
                 $scope.link += product.id;
