@@ -373,3 +373,9 @@ body {
 .no-hover:hover {
     background-color: rgba(0,0,0,0) !important;
 }
+
+@media all and (max-width: 768px) {
+    .header {
+        background-color: red !important;
+    }
+}
