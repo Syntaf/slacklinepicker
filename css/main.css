@@ -195,6 +195,10 @@ body {
     color: black;
 }
 
+.footer .share-this {
+    display: inline;
+}
+
 .footer .share-this:hover {
     text-decoration: underline;
     cursor: pointer;
@@ -347,4 +351,9 @@ body {
 
 .about-notes {
     font-size: 20px;
+}
+
+.email-me {
+    display: inline-block;
+    margin-left: 10px;
 }
