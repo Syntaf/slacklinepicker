@@ -18,6 +18,10 @@ app.config(['$sessionStorageProvider', '$routeProvider', function($sessionStorag
             controller: 'MainController',
             templateUrl: 'views/main.html'
         })
+        .when('/share/:configuration/:notes', {
+            controller: 'MainController',
+            templateUrl: 'views/main.html'
+        })
         .when('/additem', {
             controller: 'AddItemController',
             templateUrl: 'views/add.html'

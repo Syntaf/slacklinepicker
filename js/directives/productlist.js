@@ -24,7 +24,6 @@ function($sessionStorage) {
                 } else {
                     $('#amount-box' + idx).removeClass('red-border');
                     product.amount = amount;
-                    console.log(product);
                     if($sessionStorage.kitConfiguration == null) {
                         $sessionStorage.kitConfiguration = [product];
                         $sessionStorage.clicked = [product.id];

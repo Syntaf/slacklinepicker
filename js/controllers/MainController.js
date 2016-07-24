@@ -1,6 +1,7 @@
 app.controller('MainController', ['$scope', 'products', '$sessionStorage',
-'$routeParams', '$window', function($scope, products, $sessionStorage,
-$routeParams, $window) {
+'$routeParams', '$window', '$http', '$httpParamSerializer', 'notes',
+ function($scope, products, $sessionStorage, $routeParams, $window, $http,
+ $httpParamSerializer, notes) {
 
     $scope.total = 0;
 
@@ -18,8 +19,6 @@ $routeParams, $window) {
             $window.location.href = '#/';
         }
 
-        console.log($scope.productListById);
-
         products.success(function(data) {
             $scope.lproducts = data;
 
@@ -34,9 +33,22 @@ $routeParams, $window) {
                 });
                 return found;
             });
-
-            console.log($scope.kit);
         });
+
+        // if additional url exists, we know there are notes
+        if($routeParams.notes != null) {
+            notes.success(function (data) {
+                data.forEach(function(x) {
+                    if(x.id === $routeParams.notes) {
+                        $scope.rawNotes = x.rawnotes;
+                    }
+                });
+
+                $scope.notes = JSON.parse($scope.rawNotes);
+
+                console.log($scope.notes);
+            });
+        }
     } else {
         /*
          *  -- Main App Section --
@@ -85,6 +97,28 @@ $routeParams, $window) {
             $scope.link = $scope.link.slice(0, -1);
             $scope.rawLink = $window.location.hostname + '/' +
                 $window.location.hash + $scope.link;
+            if($sessionStorage.kitContainsNotes) {
+                var uniqueId = makeId();
+                var notesObject = [];
+                $sessionStorage.kitConfiguration.forEach(function(x) {
+                    if(x.notes != null) {
+                        notesObject.push({id: x.id, notes: x.notes});
+                    }
+                });
+                console.log($httpParamSerializer({id: uniqueId, rawnotes: notesObject}));
+                $.ajax({
+                    url: 'https://sheetsu.com/apis/v1.0/d9acf6c52e0b',
+                    data: $httpParamSerializer({id: uniqueId, rawnotes: JSON.stringify(notesObject)}),
+                    dataType: 'json',
+                    type: 'POST',
+                    success: function(data) {
+                        console.log('Success!');
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    }
+                });
+            }
             $scope.shareLink = true;
         }
 
@@ -106,7 +140,7 @@ $routeParams, $window) {
             $sessionStorage.kitConfiguration.forEach(function(x) {
                 if(x.id == $scope.notesId) {
                     x.notes = $('#notes').val();
-                    console.log(x.notes);
+                    $sessionStorage.kitContainsNotes = true;
                 }
             });
             $('#notes').val('');
