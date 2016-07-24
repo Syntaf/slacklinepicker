@@ -177,7 +177,13 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
             if($('#notes').val() == '') return;
             $sessionStorage.kitConfiguration.forEach(function(x) {
                 if(x.id == $scope.notesId) {
-                    x.notes = $('#notes').val();
+                    // save any notes
+                    if(x.notes == null) {
+                        x.notes = $('#notes').val();
+                    } else if (x.notes != $('#notes').val()) {
+                        x.notes = $('#notes').val();
+                    }
+
                     $sessionStorage.kitContainsNotes = true;
                 }
             });
