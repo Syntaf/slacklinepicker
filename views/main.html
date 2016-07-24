@@ -23,16 +23,16 @@
             </p>
 
             <!-- If sharing: change 'Add' to 'Show', and hide delete button -->
-            <p ng-if="freeze != true" ng-click="toggleNotes(item.id, $index)" class="notes-label">Add Notes</p>
-            <a ng-if="freeze" href="" class="notes-label">Show Notes</a>
-            <span ng-if="freeze != true" ng-click="removeItem(item.id)" class="glyphicon glyphicon-trash"></span>
+            <p ng-if="viewAsShareable != true" ng-click="toggleNotes(item.id, $index)" class="notes-label">Add Notes</p>
+            <a ng-if="viewAsShareable" href="" class="notes-label">Show Notes</a>
+            <span ng-if="viewAsShareable != true" ng-click="removeItem(item.id)" class="glyphicon glyphicon-trash"></span>
 
         </div>
     </div>
     <div class="row display">
         <div class="col-xs-2 col-md-2 left">
             <!-- If we are sharing a build, do not allow them to edit -->
-            <a ng-if="freeze != true" href="#/additem" class="add-item-label">
+            <a ng-if="viewAsShareable != true" href="#/additem" class="add-item-label">
                 <span class="glyphicon glyphicon-plus-sign"></span>
                 Add Item
             </a>
@@ -41,16 +41,16 @@
     <div class="row display total">
 
         <!-- If sharing a build, New Kit simply should redirect to the actual app -->
-        <p ng-if="freeze != true" class="create-new" ng-click="wipeKit()">New Kit</p>
-        <p ng-if="freeze" class="create-new"><a href="#/" class="create-new">New Kit</a></p>
+        <p ng-if="viewAsShareable != true" class="create-new" ng-click="wipeKit()">New Kit</p>
+        <p ng-if="viewAsShareable" class="create-new"><a href="#/" class="create-new">New Kit</a></p>
 
         <div class="col-xs-3 col-md-3 pull-right right">
             <p class="price-total-label">{{ total | currency }}</p>
 
             <!-- This is such a hacky solution to line up the price lol, I'm sorry -->
-            <p ng-if="freeze != true" class="notes-label hide-this">Add Notes</p>
-            <p ng-if="freeze" class="notes-label hides-this">Show Notes</p>
-            <span ng-if="freeze != true" class="glyphicon glyphicon-trash hide-this"></span>
+            <p ng-if="viewAsShareable != true" class="notes-label hide-this">Add Notes</p>
+            <p ng-if="viewAsShareable" class="notes-label hides-this">Show Notes</p>
+            <span ng-if="viewAsShareable != true" class="glyphicon glyphicon-trash hide-this"></span>
         </div>
         <div class="pull-right">
             <h3>Total:</h3>
@@ -59,7 +59,7 @@
 </div>
 <div class="footer">
     <!-- no need to reshare shared build -->
-    <p ng-if="freeze != true" ng-click="generateShareableHook()" class="share-this">
+    <p ng-if="viewAsShareable != true" ng-click="generateShareableHook()" class="share-this">
         Share this kit
     </p>
 
