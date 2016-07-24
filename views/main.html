@@ -1,12 +1,12 @@
 <div class="container container-small">
     <div class="row display" ng-repeat="item in kit | orderBy : ['-category','subcategory']">
-        <div class="col-md-2 center">
+        <div class="col-xs-2 col-md-2 center">
             <p class="category-label">{{ item.category | capitalize}}</p>
         </div>
-        <div class="col-md-2 center">
+        <div class="col-xs-2 col-md-2 center">
             <p class="category-label subcategory">{{ item.subcategory | capitalize}}</p>
         </div>
-        <div class="col-md-5 left">
+        <div class="col-xs-5 col-md-5 left">
             <a href="{{ item.link }}"
                target="_"
                class="item-label">
@@ -14,7 +14,7 @@
                 <span ng-if="item.amount > 1"> x {{ item.amount }}</span>
             </a>
         </div>
-        <div class="col-md-3 right">
+        <div class="col-xs-3 col-md-3 right">
             <p ng-if="item.amount != null" class="price-label">
                 {{ item.price * item.amount | currency }}
             </p>
@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="row display">
-        <div class="col-md-2 left">
+        <div class="col-xs-2 col-md-2 left">
             <!-- If we are sharing a build, do not allow them to edit -->
             <a ng-if="viewAsShareable != true" href="#/additem" class="add-item-label">
                 <span class="glyphicon glyphicon-plus-sign"></span>
