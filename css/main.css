@@ -357,3 +357,18 @@ body {
     display: inline-block;
     margin-left: 10px;
 }
+
+.about-author-header {
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+}
+
+.db-search {
+    border-radius: 0;
+    background-color: #ECF1F5;
+    border-style: none;
+}
+
+.no-hover:hover {
+    background-color: rgba(0,0,0,0) !important;
+}

@@ -1,6 +1,9 @@
 <div ng-scrollbars ng-scrollbars-config="config" class="overflow">
     <table st-table="displayInfo" st-safe-src="info" class="table-responsive table table-hover">
         <thread>
+            <tr class="no-hover">
+                <th colspan="7"><input st-search="" class="form-control db-search" placeholder="search all categories..." type="text" /></th>
+            </tr>
             <tr>
                 <th st-sort="name"><span class="hover-pointer">Name</span></th>
                 <th st-sort="category"><span class="hover-pointer">Category</span></th>
@@ -10,6 +13,7 @@
                 <th>Amount</th>
                 <th></th>
             </tr>
+
         </thread>
         <tbody>
             <tr ng-repeat="product in displayInfo"
