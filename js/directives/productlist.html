@@ -16,7 +16,8 @@
 
         </thread>
         <tbody>
-            <tr ng-repeat="product in displayInfo"
+            <tr quick-ng-repeat="product in displayInfo"
+                quick-repeat-list="items"
                 ng-click="fillDescription(product)">
                 <td>{{ product.name }}</td>
                 <td>{{ product.category | capitalize}}</td>
