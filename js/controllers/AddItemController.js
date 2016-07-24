@@ -23,6 +23,7 @@ app.controller('AddItemController', ['$scope', '$filter', 'products', '$routePar
         }
     ];
 
+    // needed for configuring the database scrollbar
     $scope.scrollbarConfig = {
         autoHideScrollbar: false,
         theme: 'light',
@@ -35,6 +36,7 @@ app.controller('AddItemController', ['$scope', '$filter', 'products', '$routePar
         scrollInertia: 900
     };
 
+    // array to keep track of what items have been selected for the kit builder
     $scope.isClicked = function(idx) {
         if($.inArray
             (idx, $sessionStorage.clicked) != -1) {
