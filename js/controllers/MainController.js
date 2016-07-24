@@ -16,6 +16,7 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
         // the route supplied after share/ is simply a list of '-' sep parts
         $scope.productListById = parseHook($routeParams.configuration);
 
+        // TODO: improve error detection capabilities
         // if parsing returned an error, return to main page
         if($scope.productListById === 'ERROR') {
             $window.location.href = '#/';
@@ -50,8 +51,25 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                         $scope.notes = JSON.parse(x.rawnotes);
                     }
                 });
-                console.log($scope.notes);
+
+                $scope.kit.forEach(function(kitItem) {
+                    $scope.notes.forEach(function(note) {
+                        if(kitItem.id == note.id) {
+                            kitItem.notes = note.notes;
+                        }
+                    });
+                });
             });
+
+            $scope.showReadOnlyNotes = function(id, idx) {
+                $scope.addNotesChecker = true;
+                $scope.notesId = id;
+                var notes = $scope.kit[idx].notes;
+                if( notes != null) {
+                    $('#notes').val(notes)
+                    $('#notes').prop('readonly', true);
+                }
+            }
         }
     } else {
         /*
@@ -116,11 +134,6 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
             // to avoid adding that last dash
             $scope.link = $scope.link.slice(0, -1);
 
-            // TODO: changed rawLink to be SITE_ADDRESS + link, site address
-            // can just be hard coded
-            $scope.rawLink = $window.location.hostname + '/' +
-                $window.location.hash + $scope.link;
-
             // if the containsNotes variable was set, that means we need to
             // push these notes to our sheetsu API
             if($sessionStorage.kitContainsNotes) {
@@ -135,6 +148,8 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                         notesObject.push({id: x.id, notes: x.notes});
                     }
                 });
+
+                $scope.link += '/' + uniqueId;
 
                 // ajax call to post data to spreadsheet
                 $.ajax({
@@ -151,6 +166,10 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                 });
             }
 
+            // TODO: changed rawLink to be SITE_ADDRESS + link, site address
+            // can just be hard coded
+            $scope.rawLink = 'http://localhost:8080/#/share/' + $scope.link;
+
             // procs ngModal to open window containing link
             $scope.shareLink = true;
         }
@@ -160,6 +179,7 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
         $scope.showCopiedLabel = function () {
             $('#show-copied').css('display','inline-block').delay(1500).fadeOut();
         }
+
 
         // shows notes to user, and if view is in shareable mode it does now allow
         // allow the input box to be modified

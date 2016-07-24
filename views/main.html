@@ -24,7 +24,8 @@
 
             <!-- If sharing: change 'Add' to 'Show', and hide delete button -->
             <p ng-if="viewAsShareable != true" ng-click="toggleNotes(item.id, $index)" class="notes-label">Add Notes</p>
-            <a ng-if="viewAsShareable" href="" class="notes-label">Show Notes</a>
+            <p ng-if="viewAsShareable && item.notes != null" ng-click="showReadOnlyNotes(item.id, $index)" class="notes-label">Show Notes</p>
+            <p ng-if="viewAsShareable && item.notes == null" class="notes-label hide-this">Show Notes</p>
             <span ng-if="viewAsShareable != true" ng-click="removeItem(item.id)" class="glyphicon glyphicon-trash"></span>
 
         </div>
@@ -49,7 +50,7 @@
 
             <!-- This is such a hacky solution to line up the price lol, I'm sorry -->
             <p ng-if="viewAsShareable != true" class="notes-label hide-this">Add Notes</p>
-            <p ng-if="viewAsShareable" class="notes-label hides-this">Show Notes</p>
+            <p ng-if="viewAsShareable" class="notes-label hide-this">Show Notes</p>
             <span ng-if="viewAsShareable != true" class="glyphicon glyphicon-trash hide-this"></span>
         </div>
         <div class="pull-right">
@@ -77,11 +78,12 @@
 
 </div>
 
-<modal-dialog show="addNotesChecker" dialog-title="Add Product Notes" width="500px"
+<modal-dialog show="addNotesChecker" dialog-title="Product Notes" width="500px"
               on-close="saveNotes()">
-    <p>Add notes about this product for others to view when shared:</p>
+    <p ng-if="viewAsShareable != true">Add notes about this product for others to view when shared:</p>
+    <p ng-if="viewAsShareable">Authors notes about this product:</p>
     <div class="form-group">
-        <label for="comment" class="form-notes-title">Notes:</label>
+        <label ng-if="viewAsShareable != true" for="comment" class="form-notes-title">Notes:</label>
         <textarea class="form-control" rows="5" id="notes"></textarea>
     </div>
 </modal-dialog>
