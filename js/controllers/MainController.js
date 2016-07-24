@@ -177,7 +177,7 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
 
             // TODO: changed rawLink to be SITE_ADDRESS + link, site address
             // can just be hard coded
-            $scope.rawLink = 'http://localhost:8080/#/share/' + $scope.link;
+            $scope.rawLink = 'www.slacklinepicker.com/#/share/' + $scope.link;
 
             // procs ngModal to open window containing link
             $scope.shareLink = true;
