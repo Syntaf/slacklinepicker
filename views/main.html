@@ -41,9 +41,11 @@
     </div>
     <div class="row display total">
 
-        <!-- If sharing a build, New Kit simply should redirect to the actual app -->
-        <p ng-if="viewAsShareable != true" class="create-new" ng-click="wipeKit()">New Kit</p>
-        <p ng-if="viewAsShareable" class="create-new"><a href="#/" class="create-new">New Kit</a></p>
+        <div class="pull-left">
+            <!-- If sharing a build, New Kit simply should redirect to the actual app -->
+            <p ng-if="viewAsShareable != true" class="create-new" ng-click="wipeKit()">New Kit</p>
+            <p ng-if="viewAsShareable" class="create-new"><a href="#/" class="create-new">New Kit</a></p>
+        </div>
 
         <div class="col-xs-3 col-md-3 pull-right right">
             <p class="price-total-label">{{ total | currency }}</p>

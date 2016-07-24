@@ -91,6 +91,7 @@ body {
 }
 
 .display .create-new {
+    display: inline-block;
     text-align: left;
     font-size: 12px;
     text-decoration: none;
