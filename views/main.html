@@ -23,8 +23,8 @@
             </p>
 
             <!-- If sharing: change 'Add' to 'Show', and hide delete button -->
-            <p ng-if="viewAsShareable != true" ng-click="toggleNotes(item.id, $index)" class="notes-label">Add Notes</p>
-            <p ng-if="viewAsShareable && item.notes != null" ng-click="showReadOnlyNotes(item.id, $index)" class="notes-label">Show Notes</p>
+            <p ng-if="viewAsShareable != true" ng-click="toggleNotes(item.id)" class="notes-label">Add Notes</p>
+            <p ng-if="viewAsShareable && item.notes != null" ng-click="showReadOnlyNotes(item.id)" class="notes-label">Show Notes</p>
             <p ng-if="viewAsShareable && item.notes == null" class="notes-label hide-this">Show Notes</p>
             <span ng-if="viewAsShareable != true" ng-click="removeItem(item.id)" class="glyphicon glyphicon-trash"></span>
 

@@ -53,23 +53,32 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                 });
 
                 $scope.kit.forEach(function(kitItem) {
+                    console.log('kitItem: ' + kitItem.id)
                     $scope.notes.forEach(function(note) {
+                        console.log('note: ' + note.id);
                         if(kitItem.id == note.id) {
+                            console.log('in!');
                             kitItem.notes = note.notes;
                         }
                     });
                 });
+
+                console.log($scope.kit);
+
+                $scope.showReadOnlyNotes = function(id) {
+                    $scope.addNotesChecker = true;
+                    $scope.kit.forEach(function(x) {
+                        if(x.id == id) {
+                            if(x.notes != null) {
+                                $('#notes').val(x.notes);
+                                $('#notes').prop('readonly', true);
+                            }
+                        }
+                    })
+                }
             });
 
-            $scope.showReadOnlyNotes = function(id, idx) {
-                $scope.addNotesChecker = true;
-                $scope.notesId = id;
-                var notes = $scope.kit[idx].notes;
-                if( notes != null) {
-                    $('#notes').val(notes)
-                    $('#notes').prop('readonly', true);
-                }
-            }
+
         }
     } else {
         /*
@@ -183,22 +192,26 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
 
         // shows notes to user, and if view is in shareable mode it does now allow
         // allow the input box to be modified
-        $scope.toggleNotes = function(id, idx) {
+        $scope.toggleNotes = function(id) {
             $scope.addNotesChecker = true;
             $scope.notesId = id;
-            var notes = $sessionStorage.kitConfiguration[idx].notes;
-            if( notes != null) {
-                $('#notes').val(notes)
-            }
+            $sessionStorage.kitConfiguration.forEach(function(x) {
+                if(x.id == id) {
+                    if(x.notes != null) {
+                        $('#notes').val(x.notes);
+                    }
+                }
+            });
         }
 
         // when the modal is exited, this function is called which saves notes
         $scope.saveNotes = function() {
-            if($('#notes').val() == '') return;
             $sessionStorage.kitConfiguration.forEach(function(x) {
                 if(x.id == $scope.notesId) {
                     // save any notes
                     if(x.notes == null) {
+                        if($('#notes').val() === '')
+                            return;
                         x.notes = $('#notes').val();
                     } else if (x.notes != $('#notes').val()) {
                         x.notes = $('#notes').val();
