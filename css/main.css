@@ -63,6 +63,7 @@ body {
     border: 1px solid #ecf1f5;
     display: inline-block;
     color: black;
+    width: 100%;
     text-decoration: underline;
     background-color: #ecf1f5;
 }

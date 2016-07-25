@@ -282,5 +282,67 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
         $scope.publicBoxIsChecked = function() {
             return $sessionStorage.submitKitPublicly;
         }
+
+        $scope.checkSharePublic = function() {
+            if(!$scope.publicBoxIsChecked)
+                return;
+
+
+            var kitName = $('#name').val();
+            var kitAuthor = $('#author').val();
+            var kitCost = $scope.total;
+
+            if(!$sessionStorage.kitMadePublic) {
+                $sessionStorage.publicKitHash = makeId();
+                var buildApiObject = {
+                    'hash': $sessionStorage.publicKitHash,
+                    'name': kitName,
+                    'cost': kitCost,
+                    'author': kitAuthor,
+                    'link': $scope.rawLink
+                };
+
+
+                // ajax call to post data to spreadsheet
+                $.ajax({
+                    url: 'https://sheetsu.com/apis/v1.0/d9acf6c52e0b/sheets/BuildsAPI',
+                    data: $httpParamSerializer(buildApiObject),
+                    dataType: 'json',
+                    type: 'POST',
+                    success: function(data) {
+                        console.log('Success!');
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    }
+                });
+
+                $sessionStorage.kitMadePublic = true;
+            } else {
+                var buildApiObject = {
+                    'name': kitName,
+                    'cost': kitCost,
+                    'author': kitAuthor,
+                    'link': $scope.rawLink
+                };
+
+                var url = 'https://sheetsu.com/apis/v1.0/d9acf6c52e0b/sheets/BuildsAPI'
+                    + '/hash/' + $sessionStorage.publicKitHash;
+
+                // ajax call to post data to spreadsheet
+                $.ajax({
+                    url: url,
+                    data: $httpParamSerializer(buildApiObject),
+                    dataType: 'json',
+                    type: 'PATCH',
+                    success: function(data) {
+                        console.log('Success!');
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    }
+                });
+            }
+        }
     }
 }]);
