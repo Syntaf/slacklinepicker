@@ -51,6 +51,10 @@ body {
     vertical-align: bottom;
 }
 
+.header a {
+    margin: 0 10px;
+}
+
 .main {
     color: black;
     margin-top: 50px;
@@ -399,6 +403,13 @@ body {
 
 .form label {
     font-weight: 200;
+}
+
+.no-stripe,
+.no-stripe th,
+th {
+    background-color: rgba(0,0,0,0) !important;
+    border-style: none !important;
 }
 
 @media only screen and (max-device-width: 768px) {
