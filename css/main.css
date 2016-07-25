@@ -412,6 +412,22 @@ th {
     border-style: none !important;
 }
 
+.overflow-public {
+    height: 650px;
+    overflow-y: auto;
+}
+
+.table-condensed tbody {
+    width: 100%;
+}
+
+.public-button {
+    border-radius: 0;
+    padding: 2px;
+    color: #D81159;
+    font-weight: bold;
+}
+
 @media only screen and (max-device-width: 768px) {
     .display {
         font-size: 12px;
