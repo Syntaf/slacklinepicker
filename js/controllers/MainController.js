@@ -3,22 +3,13 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
  function($scope, products, $sessionStorage, $routeParams, $window, $http,
  $httpParamSerializer, notes) {
 
-    // represents the total price of the current $scope.kit
     $scope.total = 0;
 
     if($routeParams.configuration != null) {
         /*
-         *  -- Shareable section --
-         *  This section is entered if a user uses a shareable link
-         *  to view someone else's configuration
-         *
-         *  LOCAL VARIABLE LIST
-         *  $scope.viewAsShareable: If set to true, the main.html will
-         *      change the view of the screen to create a 'read-only' view.
-         *      This way a user won't be able to modify a build they've been
-         *      given as a shareable link
-         *  $scope.productListById: Result of parsing the split up product list
-         *      that was passed as a route.
+        *  -- Shareable section --
+        *  This section is entered if a user uses a shareable link
+        *  to view someone else's configuration
         */
 
         $scope.viewAsShareable = true;
@@ -34,7 +25,7 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
         // asychronously grab product data from API
         products.success(function(data) {
             $scope.lproducts = data;
-*
+
             // TODO: ID's correspond to array locations, do that instead?
             // set the kit to all products mentioned in the route string
             $scope.kit = $.grep($scope.lproducts, function(e) {
@@ -94,50 +85,9 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
          *  -- Main App Section --
          *  If a user visits the webpage normalling, this is the section
          *  entered.
-         *
-         *  LOCAL VARIABLE LIST
-         *  $scope.sharePublic: If the 'share public' checkbox within the share modal
-         *      is clicked, this will be true. Otherwise it will be false. Used to
-         *      determine whether the form should be displayed below the shared links
-         *  $scope.kit: Holds the current kit configuration that should be displayed
-         *      to the user. Always a copy of $sessionStorage.kitConfiguration since
-         *      the kit is designed to live beyond a simple refresh.
-         *  $scope.wipeKit: function which wipes all data related to the current kit.
-         *      called by the html element `create-new` upon ng-click
-         *  $scope.removeItem: when the trash glyphicon is clicked, ng-click will called
-         *      this function to remove the item from $scope.kit, $sessionStorage.kitConfiguration
-         *      , and $sessionStorage.clicked
-         *  $scope.generateShareableHook: when the html element 'share-this' is clicked, ng-click
-         *      will proc this function which generates a link for the current kit that can be
-         *      shared with other users. uses sheetsu API to post note information if it exists
-             *  $scope.link: contains the shareable link generated for the user. First part
-             *      of the link will contain a '-' separated list of part ID's, and if notes
-             *      exist a uniqueID will be generated and added onto that list so notes can
-             *      be retreived from the noteAPI.
-             *  $scope.rawLink: hard coded host address plus the link, used for displaying
-             *  $scope.shareLink: set to true at the end of the generateShareableHook function
-             *      so that the share modal will open and display the link for the user
-         *  $scope.showCopiedLabel: When the user clicks the 'copy to clipboard' button,
-         *      this function will display a 'Copied!' label then fade it out
-         *  $scope.toggleNotes: when a user clicks on either 'Add Notes' or 'Show Notes',
-         *      this function will proc and display the notes.
-             *  $scope.addNotesChecker: tells the notes modal to open when set to true
-             *  $scope.notesId: lets the function know which ID to store/show the notes for
-         *  $scope.saveNotes: upon the modal exiting, this function will save any notes
-         *      within the input box if they differ from the current notes.
-             *  $sessionStorage.kitContainsNotes: if any notes have been saved, we want to
-                    generate a shareable link to them by posting to the NoteAPI when creating
-                    a shareable link. If no notes exist, we don't need to waste an API call
-                    and this will remain false.
-         *  $scope.togglePublicKit: when the checkbox is clicked for sharing publicly, this
-                will toggle the box on/off
-             *  $sessionStorage.submitKitPublicly: we need the decision to submit publicly to last
-                    an entire session and not just a single page instance.
-         *  $scope.publicBoxIsChecked: returns value of $sessionStorage.submitKitPublicly
         */
 
         // set the kit to the current sessions kit (incase user refreshed page)
-        $scope.sharePublic = false;
         $scope.kit = $sessionStorage.kitConfiguration;
         if($scope.kit != null) {
             // if the kit exists, recalculate the total price of the config
@@ -176,7 +126,6 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
         }
 
         $scope.generateShareableHook = function() {
-
             // Called when a user attempts to share their configuration
             if($scope.kit == null) return;
 
@@ -211,8 +160,6 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
 
                 $scope.link += '/' + uniqueId;
 
-                // TODO: re-enable!
-                /*
                 // ajax call to post data to spreadsheet
                 $.ajax({
                     url: 'https://sheetsu.com/apis/v1.0/d9acf6c52e0b',
@@ -226,7 +173,6 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                         console.log(data);
                     }
                 });
-                */
             }
 
             // TODO: changed rawLink to be SITE_ADDRESS + link, site address
@@ -237,15 +183,16 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
             $scope.shareLink = true;
         }
 
+        // when the 'copy to clipboard' label is clicked, this will make the label
+        // appear.
         $scope.showCopiedLabel = function () {
-            // when the 'copy to clipboard' label is clicked, this will make the label
-            // appear.
             $('#show-copied').css('display','inline-block').delay(1500).fadeOut();
         }
 
+
+        // shows notes to user, and if view is in shareable mode it does now allow
+        // allow the input box to be modified
         $scope.toggleNotes = function(id) {
-            // shows notes to user, and if view is in shareable mode it does now allow
-            // allow the input box to be modified
             $scope.addNotesChecker = true;
             $scope.notesId = id;
             $sessionStorage.kitConfiguration.forEach(function(x) {
@@ -257,8 +204,8 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
             });
         }
 
+        // when the modal is exited, this function is called which saves notes
         $scope.saveNotes = function() {
-            // when the notes modal is exited, this function is called which saves notes
             $sessionStorage.kitConfiguration.forEach(function(x) {
                 if(x.id == $scope.notesId) {
                     // save any notes
@@ -274,14 +221,6 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                 }
             });
             $('#notes').val('');
-        }
-
-        $scope.togglePublicKit = function () {
-            $sessionStorage.submitKitPublicly = !$sessionStorage.submitKitPublicly;
-        }
-
-        $scope.publicBoxIsChecked = function() {
-            return $sessionStorage.submitKitPublicly;
         }
     }
 }]);

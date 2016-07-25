@@ -1,10 +1,10 @@
 <div class="container container-small">
     <div class="row display" ng-repeat="item in kit | orderBy : ['-category','subcategory']">
-        <div class="col-xs-2 col-md-2 center">
+        <div class="col-xs-2 col-md-2 center-t">
             <p class="category-label">{{ item.category | capitalize}}</p>
         </div>
-        <div class="col-xs-2 col-md-2 center" style="display: table;">
-            <p class="category-label subcategory" style="display: table-cell;">{{ item.subcategory | capitalize}}</p>
+        <div class="col-xs-2 col-md-2 center-t">
+            <p class="category-label subcategory">{{ item.subcategory | capitalize}}</p>
         </div>
         <div class="col-xs-4 col-md-5 left">
             <a href="{{ item.link }}"
