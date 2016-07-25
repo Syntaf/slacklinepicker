@@ -275,7 +275,7 @@ body {
     font-size: 13px;
 }
 
-#description-box {
+.description-box {
     overflow-y: auto;
     max-height: 570px;
 }
@@ -289,7 +289,7 @@ body {
     padding: 10px 15px;
 }
 
-#title-box {
+.title-box {
     text-align: center;
     border-bottom: 1px solid black;
     padding-bottom: 5px;
@@ -396,5 +396,39 @@ body {
 @media only screen and (max-device-width: 768px) {
     .display {
         font-size: 12px;
+    }
+
+    #neg-margin {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        width: 100%;
+        height: 200px;
+    }
+
+    .overflow {
+        margin-top: 5px;
+        border: 2px solid white;
+    }
+
+    .description-box {
+        max-height: 150px;
+        overflow-y: scroll;
+        font-size: 12px;
+    }
+
+    .desktop {
+        display: none;
+    }
+}
+
+@media only screen and (max-device-height: 736px) {
+    .overflow {
+        height: 1100px;
+    }
+}
+
+@media only screen and (min-device-width: 769px) {
+    .mobile-v {
+        display: none;
     }
 }

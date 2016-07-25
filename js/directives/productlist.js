@@ -13,9 +13,9 @@ function($sessionStorage) {
             // description box on the left with that items description,
             // plus a couple other items
             scope.fillDescription = function(product) {
-                $('#title-box').text(product.name);
-                $('#description-box').text(product.description);
-                $('#description-box').append(
+                $('.title-box').text(product.name);
+                $('.description-box').text(product.description);
+                $('.description-box').append(
                     '<a target="_blank" href=' + product.link +
                     ' id="product-link">Product Page</a>');
             }

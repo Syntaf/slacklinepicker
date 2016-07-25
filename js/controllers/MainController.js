@@ -3,13 +3,22 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
  function($scope, products, $sessionStorage, $routeParams, $window, $http,
  $httpParamSerializer, notes) {
 
+    // represents the total price of the current $scope.kit
     $scope.total = 0;
 
     if($routeParams.configuration != null) {
         /*
-        *  -- Shareable section --
-        *  This section is entered if a user uses a shareable link
-        *  to view someone else's configuration
+         *  -- Shareable section --
+         *  This section is entered if a user uses a shareable link
+         *  to view someone else's configuration
+         *
+         *  LOCAL VARIABLE LIST
+         *  $scope.viewAsShareable: If set to true, the main.html will
+         *      change the view of the screen to create a 'read-only' view.
+         *      This way a user won't be able to modify a build they've been
+         *      given as a shareable link
+         *  $scope.productListById: Result of parsing the split up product list
+         *      that was passed as a route.
         */
 
         $scope.viewAsShareable = true;
@@ -25,7 +34,7 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
         // asychronously grab product data from API
         products.success(function(data) {
             $scope.lproducts = data;
-
+*
             // TODO: ID's correspond to array locations, do that instead?
             // set the kit to all products mentioned in the route string
             $scope.kit = $.grep($scope.lproducts, function(e) {
