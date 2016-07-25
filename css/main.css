@@ -151,19 +151,20 @@ body {
     display: inline-block;
     background-color: white;
     color: black;
-    padding: 12px 30px;
+    padding: 0 20px;
     width: 55%;
     height: 50px;
+    line-height: 50px;
 }
 
 .display .price-total-label {
-    text-align: left;
     background-color: white;
     color: black;
-    padding: 12px 30px;
+    padding: 0 30px;
     width: 55%;
     height: 50px;
     display: inline-block;
+    line-height: 50px;
 }
 
 .display .price-total-header {
@@ -427,6 +428,18 @@ body {
 
     .desktop {
         display: none;
+    }
+
+    .display .item-label {
+        width: 120%;
+    }
+
+    .display .price-label {
+        width: 40%;
+    }
+
+    .display .price-total-label {
+        width: 50%;
     }
 }
 
