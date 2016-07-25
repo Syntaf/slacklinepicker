@@ -81,6 +81,26 @@
             </button>
             <p class="show-hide" id="show-copied">Copied!</p>
         </div>
+        <div class="pull-right">
+            <div class="checkbox">
+                <label ng-if="!publicBoxIsChecked()"><input type="checkbox" value="" ng-click="togglePublicKit()"/>Make Public</label>
+                <label ng-if="publicBoxIsChecked()"><input type="checkbox" value="" ng-click="togglePublicKit()" checked/>Make Public</label>
+            </div>
+        </div>
+        <div class="row new-line" ng-if="publicBoxIsChecked()">
+            <form class="form" role="form">
+                <div class="form-group">
+                    <label for="name">Kit Name:</label>
+                    <input type="text" class="form-control" id="name" />
+                </div>
+                <div class="form-group">
+                    <label for="name">Author:</label>
+                    <input type="text" class="form-control" id="author" />
+                </div>
+            </form>
+            <p>Note: Kit will be submitted/updated upon exiting</p>
+        </div>
+
     </modal-dialog>
 
 </div>

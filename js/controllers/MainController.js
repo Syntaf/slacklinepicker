@@ -126,6 +126,9 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
         }
 
         $scope.generateShareableHook = function() {
+
+            $scope.sharePublic = false;
+
             // Called when a user attempts to share their configuration
             if($scope.kit == null) return;
 
@@ -160,6 +163,8 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
 
                 $scope.link += '/' + uniqueId;
 
+                // TODO: re-enable!
+                /*
                 // ajax call to post data to spreadsheet
                 $.ajax({
                     url: 'https://sheetsu.com/apis/v1.0/d9acf6c52e0b',
@@ -173,6 +178,7 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                         console.log(data);
                     }
                 });
+                */
             }
 
             // TODO: changed rawLink to be SITE_ADDRESS + link, site address
@@ -183,16 +189,16 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
             $scope.shareLink = true;
         }
 
-        // when the 'copy to clipboard' label is clicked, this will make the label
-        // appear.
+
         $scope.showCopiedLabel = function () {
+            // when the 'copy to clipboard' label is clicked, this will make the label
+            // appear.
             $('#show-copied').css('display','inline-block').delay(1500).fadeOut();
         }
 
-
-        // shows notes to user, and if view is in shareable mode it does now allow
-        // allow the input box to be modified
         $scope.toggleNotes = function(id) {
+            // shows notes to user, and if view is in shareable mode it does now allow
+            // allow the input box to be modified
             $scope.addNotesChecker = true;
             $scope.notesId = id;
             $sessionStorage.kitConfiguration.forEach(function(x) {
@@ -204,8 +210,8 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
             });
         }
 
-        // when the modal is exited, this function is called which saves notes
         $scope.saveNotes = function() {
+            // when the notes modal is exited, this function is called which saves notes
             $sessionStorage.kitConfiguration.forEach(function(x) {
                 if(x.id == $scope.notesId) {
                     // save any notes
@@ -221,6 +227,18 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                 }
             });
             $('#notes').val('');
+        }
+
+        $scope.togglePublicKit = function () {
+            if($sessionStorage.submitKitPublicy == null) {
+                $sessionStorage.submitKitPublicy = true;
+            } else {
+                $sessionStorage.submitKitPublicly = !$sessionStorage.submitKitPublicly;
+            }
+        }
+
+        $scope.publicBoxIsChecked = function() {
+            return $sessionStorage.submitKitPublicly;
         }
     }
 }]);

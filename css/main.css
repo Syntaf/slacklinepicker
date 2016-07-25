@@ -59,8 +59,18 @@ body {
 /* main.html css */
 
 .shareable-link-text {
-    display: block;
+    padding: 10px;
+    border: 1px solid #ecf1f5;
+    display: inline-block;
+    color: black;
     text-decoration: underline;
+    background-color: #ecf1f5;
+}
+
+.new-line {
+    margin-top: 10px;
+    clear: both;
+    margin-left: 0px;
 }
 
 #copy {
@@ -377,6 +387,10 @@ body {
 
 .no-hover:hover {
     background-color: rgba(0,0,0,0) !important;
+}
+
+.form label {
+    font-weight: 200;
 }
 
 @media only screen and (max-device-width: 768px) {
