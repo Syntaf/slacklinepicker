@@ -14,6 +14,10 @@ app.config(['$sessionStorageProvider', '$routeProvider', function($sessionStorag
             controller: 'MainController',
             templateUrl: 'views/main.html'
         })
+        .when('/public', {
+            controller: 'PublicKitsController',
+            templateUrl: 'views/kitviewer.html'
+        })
         .when('/about', {
             controller: 'AboutController',
             templateUrl: 'views/about.html'
