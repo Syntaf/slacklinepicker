@@ -370,13 +370,19 @@ body {
     background-position: center;
     border-radius: 0;
     margin-top: -50px;
+    margin-bottom: 50px;
 }
 
 .about-notes {
     font-size: 20px;
 }
 
+.bottom-margin {
+    margin-bottom: 50px;
+}
+
 .about-author-header {
+    margin-top: -5px;
     border-bottom: 1px solid white;
     padding-bottom: 10px;
 }
