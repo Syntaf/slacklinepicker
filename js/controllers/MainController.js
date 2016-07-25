@@ -304,6 +304,8 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
 
 
                 // ajax call to post data to spreadsheet
+                // TODO: enable!
+                /*
                 $.ajax({
                     url: 'https://sheetsu.com/apis/v1.0/d9acf6c52e0b/sheets/BuildsAPI',
                     data: $httpParamSerializer(buildApiObject),
@@ -316,6 +318,7 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                         console.log(data);
                     }
                 });
+                */
 
                 $sessionStorage.kitMadePublic = true;
             } else {
@@ -330,6 +333,8 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                     + '/hash/' + $sessionStorage.publicKitHash;
 
                 // ajax call to post data to spreadsheet
+                // TODO: enable!
+                /*
                 $.ajax({
                     url: url,
                     data: $httpParamSerializer(buildApiObject),
@@ -342,6 +347,7 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                         console.log(data);
                     }
                 });
+                */
             }
         }
     }

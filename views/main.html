@@ -45,6 +45,14 @@
             <!-- If sharing a build, New Kit simply should redirect to the actual app -->
             <p ng-if="viewAsShareable != true" class="create-new" ng-click="wipeKit()">New Kit</p>
             <p ng-if="viewAsShareable" class="create-new"><a href="#/" class="create-new">New Kit</a></p>
+
+            <!-- no need to reshare shared build -->
+            <p ng-if="viewAsShareable != true" ng-click="generateShareableHook()" class="share-this">
+                Share this kit
+            </p>
+            <a class="email-me" href="mailto:gmercer015@gmail.com">
+                Issues or suggestions?
+            </a>
         </div>
 
         <div class="col-md-3 pull-right right">
@@ -60,51 +68,39 @@
         </div>
     </div>
 </div>
-<div class="footer">
-    <!-- no need to reshare shared build -->
-    <p ng-if="viewAsShareable != true" ng-click="generateShareableHook()" class="share-this">
-        Share this kit
-    </p>
+
+<modal-dialog show='shareLink' dialog-title='Slackline Kit Picker' width='450px'
+              on-close="checkSharePublic()">
+    <p class="shareable-link-text">http://localhost:8080/#/share/{{ link }}</p>
+    <div class="pull-left">
+        <button clipboard href="" class="btn btn-default" id="copy"
+                text="rawLink"
+                ng-click="showCopiedLabel()">
+            Copy To Clipboard
+        </button>
+        <p class="show-hide" id="show-copied">Copied!</p>
+    </div>
     <div class="pull-right">
-        <a class="email-me" href="mailto:gmercer015@gmail.com">
-            Issues or suggestions?
-        </a>
+        <div class="checkbox">
+            <label ng-if="!publicBoxIsChecked()"><input type="checkbox" value="" ng-click="togglePublicKit()"/>Make Public</label>
+            <label ng-if="publicBoxIsChecked()"><input type="checkbox" value="" ng-click="togglePublicKit()" checked/>Make Public</label>
+        </div>
+    </div>
+    <div class="row new-line" ng-if="publicBoxIsChecked()">
+        <form class="form" role="form">
+            <div class="form-group">
+                <label for="name">Kit Name:</label>
+                <input type="text" class="form-control" id="name" />
+            </div>
+            <div class="form-group">
+                <label for="name">Author:</label>
+                <input type="text" class="form-control" id="author" />
+            </div>
+        </form>
+        <p>Note: Kit will be submitted/updated upon exiting</p>
     </div>
 
-    <modal-dialog show='shareLink' dialog-title='Slackline Kit Picker' width='450px'
-                  on-close="checkSharePublic()">
-        <p class="shareable-link-text">http://localhost:8080/#/share/{{ link }}</p>
-        <div class="pull-left">
-            <button clipboard href="" class="btn btn-default" id="copy"
-                    text="rawLink"
-                    ng-click="showCopiedLabel()">
-                Copy To Clipboard
-            </button>
-            <p class="show-hide" id="show-copied">Copied!</p>
-        </div>
-        <div class="pull-right">
-            <div class="checkbox">
-                <label ng-if="!publicBoxIsChecked()"><input type="checkbox" value="" ng-click="togglePublicKit()"/>Make Public</label>
-                <label ng-if="publicBoxIsChecked()"><input type="checkbox" value="" ng-click="togglePublicKit()" checked/>Make Public</label>
-            </div>
-        </div>
-        <div class="row new-line" ng-if="publicBoxIsChecked()">
-            <form class="form" role="form">
-                <div class="form-group">
-                    <label for="name">Kit Name:</label>
-                    <input type="text" class="form-control" id="name" />
-                </div>
-                <div class="form-group">
-                    <label for="name">Author:</label>
-                    <input type="text" class="form-control" id="author" />
-                </div>
-            </form>
-            <p>Note: Kit will be submitted/updated upon exiting</p>
-        </div>
-
-    </modal-dialog>
-
-</div>
+</modal-dialog>
 
 <modal-dialog show="addNotesChecker" dialog-title="Product Notes" width="500px"
               on-close="saveNotes()">
