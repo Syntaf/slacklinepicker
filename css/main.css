@@ -428,7 +428,7 @@ th {
     font-weight: bold;
 }
 
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 990px) {
     .display {
         font-size: 12px;
     }
@@ -468,13 +468,13 @@ th {
     }
 }
 
-@media only screen and (max-device-height: 736px) {
+@media only screen and (max-device-height: 780px) {
     .overflow {
         height: 1000px;
     }
 }
 
-@media only screen and (min-device-width: 769px) {
+@media only screen and (min-width: 990px) {
     .mobile-v {
         display: none;
     }
