@@ -52,3 +52,24 @@ app.filter('capitalize', function() {
         return input.replace('_', ' ').replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
     }
 });
+
+app.filter('excludeDescription', ['$filter', function($filter) {
+    return function(input, predicate) {
+        searchValue = predicate['$'];
+        var customPredicate = function(value, index, array) {
+            if (typeof searchValue === 'undefined') {
+                return true;
+            }
+
+            var p0 = value['name'].toLowerCase().indexOf(searchValue.toLowerCase());
+            var p1 = value['producer'].toLowerCase().indexOf(searchValue.toLowerCase());
+            if(p0 > -1 || p1 > -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        return $filter('filter')(input, customPredicate, false);
+    }
+}]);
