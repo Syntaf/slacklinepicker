@@ -61,17 +61,12 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                 });
 
                 $scope.kit.forEach(function(kitItem) {
-                    console.log('kitItem: ' + kitItem.id)
                     $scope.notes.forEach(function(note) {
-                        console.log('note: ' + note.id);
                         if(kitItem.id == note.id) {
-                            console.log('in!');
                             kitItem.notes = note.notes;
                         }
                     });
                 });
-
-                console.log($scope.kit);
 
                 $scope.showReadOnlyNotes = function(id) {
                     $scope.addNotesChecker = true;
@@ -138,6 +133,8 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
         // set the kit to the current sessions kit (incase user refreshed page)
         $scope.sharePublic = false;
         $scope.kit = $sessionStorage.kitConfiguration;
+        $scope.currentKitName = $sessionStorage.currentKitName;
+        $scope.currentKitAuthor = $sessionStorage.currentKitAuthor;
         if($scope.kit != null) {
             // if the kit exists, recalculate the total price of the config
             $scope.kit.forEach(function(data) {
@@ -299,7 +296,6 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                     'link': $scope.rawLink
                 };
 
-
                 // ajax call to post data to spreadsheet
                 $.ajax({
                     url: 'https://sheetsu.com/apis/v1.0/d9acf6c52e0b/sheets/BuildsAPI',
@@ -340,6 +336,9 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                     }
                 });
             }
+
+            $sessionStorage.currentKitName = kitName;
+            $sessionStorage.currentKitAuthor = kitAuthor;
         }
     }
 }]);
