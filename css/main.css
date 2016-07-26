@@ -8,6 +8,12 @@ body {
     background-color: #5BC0EB;
 }
 
+.logo {
+    height: 75px;
+    width: 80px;
+    border: 1px solid black;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
