@@ -295,7 +295,7 @@ body {
 
 .description-box {
     overflow-y: auto;
-    max-height: 570px;
+    max-height: 500px;
 }
 
 #product-link {
