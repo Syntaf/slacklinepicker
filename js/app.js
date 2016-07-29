@@ -53,6 +53,12 @@ app.filter('capitalize', function() {
     }
 });
 
+app.filter('euro', function() {
+    return function(input) {
+        return (parseFloat(input) * 0.9).toFixed(3);
+    }
+})
+
 app.filter('excludeDescription', ['$filter', function($filter) {
     return function(input, predicate) {
         searchValue = predicate['$'];

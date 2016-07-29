@@ -5,7 +5,8 @@ function($sessionStorage) {
         scope: {
             info: '=',
             config: '=',
-            clicked: '&'
+            clicked: '&',
+            filt: '='
         },
         templateUrl: 'js/directives/productlist.html',
         link: function(scope, element, attrs) {

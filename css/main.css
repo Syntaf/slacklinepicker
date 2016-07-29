@@ -318,6 +318,16 @@ body {
     overflow: auto;
 }
 
+.table-hover {
+    position: relative;
+}
+
+#loader {
+    position: aboluste;
+    top: 0;
+    left: 0;
+}
+
 .table-hover th {
     border-top: none !important;
 }
@@ -384,7 +394,7 @@ body {
 }
 
 .about-notes {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .bottom-margin {

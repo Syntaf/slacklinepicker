@@ -1,17 +1,21 @@
 app.controller('AddItemController', ['$scope', '$filter', 'products', '$routeParams',
 '$sessionStorage', function($scope, $filter, products, $routeParams, $sessionStorage) {
     // load data to be stored, and filter data based upon the filters passed
+    $scope.loaded = false;
     products.success(function(data) {
         $scope.lproducts = data;
         $scope.lproducts = $filter('filter')($scope.lproducts, $scope.filters);
+        $scope.loaded = true;
     });
+
+    $scope.euroFilter = false;
 
     // hard coded catagories for the add item page
     $scope.api_categories = [
         {
             name: 'hardware',
             subcategories: ['ascenders', 'pulleys', 'quicklinks', 'rings',
-            'shackles', 'brakes', 'rigging_plates', 'webbing_anchors','linegrabs',
+            'shackles', 'brakes', 'rigging_plates', 'weblocks','linegrabs',
             'misc']
         },
         {
