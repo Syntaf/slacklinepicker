@@ -2,7 +2,9 @@
     <div class="pull-right">
         <a href="#/" style="display: inline-block;" class="btn btn-default" id="backbutton">Go Back</a>
     </div>
-    <h2>Recent Builds</h2>
+    <h2>Recent Builds
+        <a href="javascript:history.go(0)"><span style="font-size: 15px;" class="glyphicon glyphicon-refresh"></span></a>
+    </h2>
     <p ng-if="doneLoad == null">Loading...</p>
     <div ng-scrollbars ng-scrollbars-config="config" class="overflow-public">
         <table st-table="publicInfo" st-safe-src="buildList" class="table-responsive table table-striped table-condensed">
