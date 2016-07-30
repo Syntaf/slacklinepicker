@@ -343,7 +343,7 @@ body {
 
 .jk {
     display: inline-block;
-    width: 91% !important;
+    width: 93% !important;
     border-bottom: 1px solid black;
 }
 
@@ -498,8 +498,12 @@ th {
         height: 200px;
     }
 
+    .jk {
+        width: 92% !important;
+    }
+
     .overflow {
-        margin-top: 5px;
+        margin-top: -20px;
     }
 
     .description-box {
