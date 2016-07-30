@@ -1,48 +1,51 @@
-<div ng-scrollbars ng-scrollbars-config="config" class="overflow">
-    <table st-table="displayInfo" st-set-filter="excludeDescription" st-safe-src="info" class="table-responsive table table-hover">
+<div class="wrapper" st-table="displayInfo" st-set-filter="excludeDescription" st-safe-src="info">
+    <label ng-click="euroFilter=false" class="radio-inline"><input checked="none" type="radio" name="optradio" />US Dollar</label>
+    <label ng-click="euroFilter=true" class="radio-inline"><input type="radio" name="optradio" />Euro</label>
+    <input st-search="" class="form-control db-search" placeholder="search name or brand..." type="text" />
+    <table class="table-responsive table table-hover">
         <thead>
-            <tr class="no-hover">
-                <th colspan="7"><input st-search="" class="form-control db-search" placeholder="search name or brand..." type="text" /></th>
+            <tr class="jk">
+                <th style="width: 35%;" st-sort="name"><span class="hover-pointer">Name</span></th>
+                <th style="width: 10%;" st-sort="category"><span class="hover-pointer">Category</span></th>
+                <th style="width: 12%;" st-sort="subcategory"><span class="hover-pointer">Subcategory</span></th>
+                <th style="width: 20%;" st-sort="brand"><span class="hover-pointer">Brand</span></th>
+                <th style="width: 8%;" st-sort="price"><span class="hover-pointer">Price</span></th>
+                <th style="width: 5%;">Amount</th>
+                <th style="width: 3%;"></th>
             </tr>
-            <tr>
-                <th st-sort="name"><span class="hover-pointer">Name</span></th>
-                <th st-sort="category"><span class="hover-pointer">Category</span></th>
-                <th st-sort="subcategory"><span class="hover-pointer">Subcategory</span></th>
-                <th st-sort="brand"><span class="hover-pointer">Brand</span></th>
-                <th st-sort="price"><span class="hover-pointer">Price</span></th>
-                <th>Amount</th>
-                <th></th>
-            </tr>
-
         </thead>
-        <tbody>
-            <tr quick-ng-repeat="product in displayInfo"
-                quick-repeat-list="items"
-                ng-click="fillDescription(product)">
-                <td>{{ product.name }}</td>
-                <td>{{ product.category | capitalize}}</td>
-                <td>{{ product.subcategory | capitalize }}</td>
-                <td>{{ product.producer }}</td>
-                <td ng-if="!filt">{{ product.price | currency}}</td>
-                <td ng-if="filt">{{ product.price | euro | currency : "€"}}</td>
-                <td>
-                    <input type="text"
-                           class="amount"
-                           id="amount-box{{ $index }}"
-                           value="1"/>
-                </td>
-                <td>
-                    <span ng-if="clicked({idx: product.id}) == true"
-                          class="glyphicon glyphicon-ok"
-                          id="glyphicon{{ $index }}">
-                    </span>
-                    <span ng-if="clicked({idx: product.id}) == false"
-                          ng-click="addToKit($index, product)"
-                          class="glyphicon glyphicon-plus"
-                          id="glyphicon{{ $index }}">
-                    </span>
-                </td>
-            </tr>
-        </tbody>
     </table>
+    <div ng-scrollbars ng-scrollbars-config="config" class="overflow">
+        <table class="table-responsive table table-hover">
+            <tbody>
+                <tr quick-ng-repeat="product in displayInfo"
+                    quick-repeat-list="items"
+                    ng-click="fillDescription(product)">
+                    <td style="width: 35%;">{{ product.name }}</td>
+                    <td style="width: 10%;">{{ product.category | capitalize}}</td>
+                    <td style="width: 12%;">{{ product.subcategory | capitalize }}</td>
+                    <td style="width: 20%;">{{ product.producer }}</td>
+                    <td style="width: 8%;"ng-if="!euroFilter">{{ product.price | currency}}</td>
+                    <td style="width: 8%;"ng-if="euroFilter">{{ product.price | euro | currency : "€"}}</td>
+                    <td style="width: 5%;">
+                        <input type="text"
+                               class="amount"
+                               id="amount-box{{ $index }}"
+                               value="1"/>
+                    </td>
+                    <td style="width: 3%;">
+                        <span ng-if="clicked({idx: product.id}) == true"
+                              class="glyphicon glyphicon-ok"
+                              id="glyphicon{{ $index }}">
+                        </span>
+                        <span ng-if="clicked({idx: product.id}) == false"
+                              ng-click="addToKit($index, product)"
+                              class="glyphicon glyphicon-plus"
+                              id="glyphicon{{ $index }}">
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

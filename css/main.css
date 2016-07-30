@@ -322,13 +322,41 @@ body {
 }
 
 .overflow {
-    height: 700px;
+    height: 600px;
     overflow: auto;
+    margin-top: -20px;
+}
+
+.wrapper {
+    font-family: 'Roboto', sans-serif;
 }
 
 .table-hover {
     position: relative;
-    font-family: 'Roboto', sans-serif;
+}
+
+.table-hover tr {
+    display: inline-block;
+    width: 100%;
+    margin-top: 0;
+}
+
+.jk {
+    display: inline-block;
+    width: 91% !important;
+    border-bottom: 1px solid black;
+}
+
+.table-hover tbody td {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.table-hover thead th {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
 }
 
 #loader {
@@ -345,9 +373,13 @@ body {
     border-bottom: 2px solid black;
 }
 
+.table-hover tr {
+    border-bottom: 1px solid black !important;
+}
+
 .table-hover td {
     font-weight: bold;
-    border-top: 1px solid black !important;
+    border-style: none !important;
 }
 
 .table-hover td:hover {
@@ -359,7 +391,7 @@ body {
 }
 
 .amount {
-    width: 50px;
+    width: 30px;
     text-align: center;
     color: black;
     font-size: 12px;
@@ -420,6 +452,7 @@ body {
     border-radius: 0;
     background-color: #ECF1F5;
     border-style: none;
+    width: 95%;
 }
 
 .no-hover:hover {
@@ -467,7 +500,6 @@ th {
 
     .overflow {
         margin-top: 5px;
-        border: 2px solid white;
     }
 
     .description-box {
