@@ -249,7 +249,7 @@ body {
     background-color: #2457AF;
     color: white;
     border: 1px solid #2457AF;
-    padding: 10px;
+    padding: 10px 20px;
 }
 
 #backbutton:hover {
@@ -296,6 +296,10 @@ body {
 .description-box {
     overflow-y: auto;
     max-height: 500px;
+}
+
+.description-box strong {
+    color: #D81159;
 }
 
 #product-link {
