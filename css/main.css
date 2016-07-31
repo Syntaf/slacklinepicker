@@ -292,7 +292,7 @@ body {
 .filters {
     margin-top: 10px;
     background-color: white;
-    height: 500px;
+    height: 580px;
     padding: 5px 10px;
     font-size: 13px;
 }
@@ -322,7 +322,7 @@ body {
 }
 
 .overflow {
-    height: 600px;
+    height: 580px;
     overflow: auto;
     margin-top: -20px;
 }
