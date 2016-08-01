@@ -15,11 +15,17 @@
             </a>
         </div>
         <div class="col-xs-4 col-md-3 right">
-            <p ng-if="item.amount != null" class="price-label">
+            <p ng-if="item.amount != null && !showEuros" class="price-label">
                 {{ item.price * item.amount | currency }}
             </p>
-            <p ng-if="item.amount == null" class="price-label">
+            <p ng-if="item.amount == null && !showEuros" class="price-label">
                 {{ item.price | currency }}
+            </p>
+            <p ng-if="item.amount != null && showEuros" class="price-label">
+                {{ item.price * item.amount | euro | currency : "€" }}
+            </p>
+            <p ng-if="item.amount == null && showEuros" class="price-label">
+                {{ item.price | euro | currency : "€" }}
             </p>
 
             <!-- If sharing: change 'Add' to 'Show', and hide delete button -->
@@ -51,13 +57,26 @@
             <p ng-if="viewAsShareable != true" ng-click="generateShareableHook()" class="share-this">
                 Share this kit
             </p>
+            <p class="filter-title">
+                Show:
+            </p>
+            <p class="min-checkbox" ng-click="showEuros=true">
+                Euro
+            </p>
+            <p style="font-size: 12px; display: inline;">
+                |
+            </p>
+            <p class="min-checkbox" ng-click="showEuros=false">
+                US Dollar
+            </p>
             <a class="email-me" href="mailto:gmercer015@gmail.com">
                 Issues or suggestions?
             </a>
         </div>
 
         <div class="col-md-3 pull-right right">
-            <p class="price-total-label">{{ total | currency }}</p>
+            <p ng-if="!showEuros" class="price-total-label">{{ total | currency }}</p>
+            <p ng-if="showEuros" class="price-total-label">{{ total | euro | currency : "€" }}</p>
 
             <!-- This is such a hacky solution to line up the price lol, I'm sorry -->
             <p ng-if="viewAsShareable != true" class="notes-label hide-this">Add Notes</p>

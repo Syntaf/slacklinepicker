@@ -500,6 +500,24 @@ th {
     cursor: pointer;
 }
 
+.filter-title {
+    display: inline;
+    font-size: 12px;
+    padding-left: 0px;
+}
+
+.min-checkbox {
+    color: #8F2D56;
+    display: inline-block;
+    padding-left: 2px;
+    font-size: 12px;
+}
+
+.min-checkbox:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .loader {
     position: fixed;
     left: 50%;

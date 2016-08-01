@@ -4,6 +4,8 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
  $httpParamSerializer, notes, $rootScope, $timeout) {
 
     $scope.total = 0;
+    // show US dollars be default
+    $scope.showEuros = false;
 
     if($routeParams.configuration != null) {
         $scope.viewAsShareable = true;
