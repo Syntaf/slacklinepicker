@@ -12,9 +12,16 @@ body {
     transition: opacity 1s ease-in;
 }
 
-.logo {
-    height: 75px;
-    width: 80px;
+.centered {
+    display: inline-block;
+    top: 0;
+}
+
+.img-logo {
+    display: inline-block;
+    height: 100px;
+    width: 371px;
+    margin-top: 10px;
 }
 
 .container {
@@ -32,10 +39,6 @@ body {
     background-color: white;
     text-align: center;
     height: 125px;
-}
-
-.header img {
-    margin: 25px 0;
 }
 
 .header .pull-left {
