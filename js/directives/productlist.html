@@ -6,7 +6,7 @@
         <thead>
             <tr class="jk">
                 <th style="width: 35%;" st-sort="name"><span class="hover-pointer">Name</span></th>
-                <th style="width: 10%;" st-sort="category"><span class="hover-pointer">Category</span></th>
+                <th style="width: 12%;" st-sort="category"><span class="hover-pointer">Category</span></th>
                 <th style="width: 12%;" st-sort="subcategory"><span class="hover-pointer">Subcategory</span></th>
                 <th style="width: 20%;" st-sort="brand"><span class="hover-pointer">Brand</span></th>
                 <th style="width: 8%;" st-sort="price"><span class="hover-pointer">Price</span></th>
@@ -22,7 +22,7 @@
                     quick-repeat-list="items"
                     ng-click="fillDescription(product)">
                     <td style="width: 35%;">{{ product.name }}</td>
-                    <td style="width: 10%;">{{ product.category | capitalize}}</td>
+                    <td style="width: 12%;">{{ product.category | capitalize}}</td>
                     <td style="width: 12%;">{{ product.subcategory | capitalize }}</td>
                     <td style="width: 20%;">{{ product.producer }}</td>
                     <td style="width: 8%;"ng-if="!euroFilter">{{ product.price | currency}}</td>
