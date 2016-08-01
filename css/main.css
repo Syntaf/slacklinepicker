@@ -218,6 +218,7 @@ body {
     text-decoration: none;
     display: inline;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .share-this {
