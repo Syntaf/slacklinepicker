@@ -1,6 +1,6 @@
 app.factory('notes', ['$http', function($http) {
     return $http.get(
-        '')//'https://sheetsu.com/apis/v1.0/d9acf6c52e0b/sheets/NoteAPI')
+        'https://sheetsu.com/apis/v1.0/d9acf6c52e0b/sheets/NoteAPI')
         .success(function(data) {
             return data;
         })
