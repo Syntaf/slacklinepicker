@@ -1,6 +1,6 @@
 app.controller('AddItemController', ['$scope', '$filter', 'products', '$routeParams',
-'$sessionStorage', '$rootScope', function($scope, $filter, products, $routeParams,
-$sessionStorage, $rootScope) {
+'$sessionStorage', '$rootScope', '$window', '$timeout', function($scope, $filter, products, $routeParams,
+$sessionStorage, $rootScope, $window, $timeout) {
     // load data to be stored, and filter data based upon the filters passed
 
     $scope.loaded = false;
@@ -53,6 +53,24 @@ $sessionStorage, $rootScope) {
         }
     };
 
+    $scope.categoryLoader = function(url) {
+        if($window.location.hash === '#/additem/' + url)
+            return
+        $rootScope.$broadcast('loader_show');
+        $timeout(function() {
+            $window.location.href = '#/additem/' + url;
+        })
+    }
+
+    $scope.subcategoryLoader = function(url, suburl) {
+        if($window.location.hash === '#/additem/' + url + '/' + suburl)
+            return
+        $rootScope.$broadcast('loader_show');
+        $timeout(function() {
+            $window.location.href = '#/additem/' + url + '/' + suburl;
+        })
+    }
+
     // if the controller was entered with a route (e.g. #/additem/HARDWARE)
     if($routeParams.category != null) {
         // show the subcategory menu
@@ -76,5 +94,6 @@ $sessionStorage, $rootScope) {
         }
     }
 
-    $rootScope.$broadcast("loader_hide");
+    // hide the loading icon currently spinning on the page
+    $rootScope.$broadcast('loader_hide');
 }]);

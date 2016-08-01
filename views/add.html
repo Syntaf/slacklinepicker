@@ -9,9 +9,13 @@
                     Category
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a href="#/additem/">None</a></li>
+                    <li>
+                        <a ng-click="categoryLoader('')" class="pointer">
+                            None
+                        </a>
+                    </li>
                     <li ng-repeat="category in api_categories">
-                        <a href="#/additem/{{ category.name }}">
+                        <a ng-click="categoryLoader(category.name)" class="pointer">
                             {{ category.name | capitalize }}
                         </a>
                     </li>
@@ -24,9 +28,13 @@
                     Subcategory
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a href="#/additem/{{ currentCategory.name }}">None</a></li>
+                    <li>
+                        <a ng-click="categoryLoader(currentCategory.name)">
+                            None
+                        </a>
+                    </li>
                     <li ng-repeat="subcategory in currentCategory.subcategories">
-                        <a href="#/additem/{{ currentCategory.name }}/{{ subcategory }}">
+                        <a ng-click="subcategoryLoader(currentCategory.name, subcategory)" class="pointer">
                             {{ subcategory | capitalize }}
                         </a>
                     </li>
