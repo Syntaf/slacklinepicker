@@ -1,6 +1,8 @@
 app.controller('AddItemController', ['$scope', '$filter', 'products', '$routeParams',
-'$sessionStorage', function($scope, $filter, products, $routeParams, $sessionStorage) {
+'$sessionStorage', '$rootScope', function($scope, $filter, products, $routeParams,
+$sessionStorage, $rootScope) {
     // load data to be stored, and filter data based upon the filters passed
+
     $scope.loaded = false;
     products.success(function(data) {
         $scope.lproducts = data;
@@ -73,4 +75,6 @@ app.controller('AddItemController', ['$scope', '$filter', 'products', '$routePar
             }
         }
     }
+
+    $rootScope.$broadcast("loader_hide");
 }]);

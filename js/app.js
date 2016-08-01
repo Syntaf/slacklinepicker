@@ -42,14 +42,16 @@ var app = angular.module('SlacklinePicker', [
     };
 })
 .config(function ($httpProvider) {
-    $httpProvider.interceptors.push('httpInterceptor');
+    //$httpProvider.interceptors.push('httpInterceptor');
 }).directive("loader", function ($rootScope) {
     return function ($scope, element, attrs) {
         $scope.$on("loader_show", function () {
-            return element.show();
+            return element.append('<div class="loader"></div>');
         });
         return $scope.$on("loader_hide", function () {
-            return element.hide();
+            return $('.loader').fadeOut(function() {
+                $(this).remove();
+            });
         });
     };
 })

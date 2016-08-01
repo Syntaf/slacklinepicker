@@ -1,7 +1,7 @@
 app.controller('MainController', ['$scope', 'products', '$sessionStorage',
-'$routeParams', '$window', '$http', '$httpParamSerializer', 'notes',
- function($scope, products, $sessionStorage, $routeParams, $window, $http,
- $httpParamSerializer, notes) {
+'$routeParams', '$window', '$http', '$httpParamSerializer', 'notes', '$rootScope',
+'$timeout', function($scope, products, $sessionStorage, $routeParams, $window, $http,
+ $httpParamSerializer, notes, $rootScope, $timeout) {
 
     $scope.total = 0;
 
@@ -345,6 +345,13 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
 
             $sessionStorage.currentKitName = kitName;
             $sessionStorage.currentKitAuthor = kitAuthor;
+        }
+
+        $scope.showLoader = function() {
+            $rootScope.$broadcast('loader_show');
+            $timeout(function() {
+                $window.location.href = '#/additem';
+            });
         }
 
     }
