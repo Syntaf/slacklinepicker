@@ -35,12 +35,12 @@ $sessionStorage, $rootScope, $window, $timeout) {
         autoHideScrollbar: false,
         theme: 'light',
         mouseWheel: {
-            scrollAmount: 300
+            scrollAmount: 50
         },
         advanced:{
             updateOnContentResize: true
         },
-        scrollInertia: 900
+        scrollInertia: 0
     };
 
     // array to keep track of what items have been selected for the kit builder
