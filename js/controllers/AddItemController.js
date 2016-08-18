@@ -16,7 +16,7 @@ $sessionStorage, $rootScope, $window, $timeout) {
     $scope.api_categories = [
         {
             name: 'hardware',
-            subcategories: ['ascenders', 'pulleys', 'quicklinks', 'rings',
+            subcategories: ['ascenders', 'carabiners', 'pulleys', 'quicklinks', 'rings',
             'shackles', 'brakes', 'rigging_plates', 'weblocks','linegrabs',
             'misc']
         },
