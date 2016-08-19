@@ -600,7 +600,6 @@ th {
     animation: 3.00s appear;
 }
 
-
 @keyframes appear {
     from {
         opacity: 0;
@@ -619,20 +618,20 @@ th {
     }
 }
 
-/*.animate-into.ng-enter-stagger {
+/*.animate-away.ng-enter-stagger {
     transition-delay: 0.1s;
 }
 
-.animate-into.ng-enter,
-.animate-into.ng-move,
-.animate-into.ng-leave {
+.animate-away.ng-enter,
+.animate-away.ng-move,
+.animate-away.ng-leave {
     transition-property: all;
     transition-duration: 0.5s;
     transition-timing-function: linear;
     opacity: 0;
 }
-.animate-into.ng-enter-active,
-.animate-into.ng-move-active {
+.animate-away.ng-enter-active,
+.animate-away.ng-move-active {
     opacity: 1;
 }*/
 

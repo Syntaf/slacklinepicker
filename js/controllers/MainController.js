@@ -94,6 +94,9 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
         $scope.removeItem = function(id) {
             // called when the trash glyphicon is clicked for an item. filter
             // out item with that matching ID first
+
+            // first remove the intro animation
+            $('.row').removeClass('animate-into');
             $sessionStorage.kitConfiguration =
             $.grep($sessionStorage.kitConfiguration, function(e) {
                 if(e.id == id) {

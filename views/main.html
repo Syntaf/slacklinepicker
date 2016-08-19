@@ -78,7 +78,7 @@
             <p ng-if="!showEuros" class="price-total-label">{{ total | currency }}</p>
             <p ng-if="showEuros" class="price-total-label">{{ total | euro | currency : "€" }}</p>
 
-            <!-- This is such a hacky solution to line up the price lol, I'm sorry -->
+            <!-- Hacky solution to ensure text is still aligned -->
             <p ng-if="viewAsShareable != true" class="notes-label hide-this noselect">Add Notes</p>
             <p ng-if="viewAsShareable" class="notes-label hide-this noselect">Show Notes</p>
             <span ng-if="viewAsShareable != true" class="glyphicon glyphicon-trash hide-this noselect"></span>
