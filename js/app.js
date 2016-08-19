@@ -5,7 +5,8 @@ var app = angular.module('SlacklinePicker', [
     'ngScrollbars',
     'ngModal',
     'angular-clipboard',
-    'smart-table'
+    'smart-table',
+    'ngAnimate'
 ]);
 
 app.config(['$sessionStorageProvider', '$routeProvider', '$httpProvider',
