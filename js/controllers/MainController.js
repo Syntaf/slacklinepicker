@@ -94,6 +94,9 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
         $scope.removeItem = function(id) {
             // called when the trash glyphicon is clicked for an item. filter
             // out item with that matching ID first
+
+            // first remove the intro animation
+            $('.row').removeClass('animate-into');
             $sessionStorage.kitConfiguration =
             $.grep($sessionStorage.kitConfiguration, function(e) {
                 if(e.id == id) {
@@ -150,18 +153,18 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                 $scope.link += '/' + uniqueId;
 
                 // ajax call to post data to spreadsheet
-                $.ajax({
-                    url: 'https://sheetsu.com/apis/v1.0/d9acf6c52e0b',
-                    data: $httpParamSerializer({id: uniqueId, rawnotes: JSON.stringify(notesObject)}),
-                    dataType: 'json',
-                    type: 'POST',
-                    success: function(data) {
-                        console.log('Success!');
-                    },
-                    error: function(data) {
-                        console.log(data);
-                    }
-                });
+                // $.ajax({
+                //     url: 'https://sheetsu.com/apis/v1.0/d9acf6c52e0b',
+                //     data: $httpParamSerializer({id: uniqueId, rawnotes: JSON.stringify(notesObject)}),
+                //     dataType: 'json',
+                //     type: 'POST',
+                //     success: function(data) {
+                //         console.log('Success!');
+                //     },
+                //     error: function(data) {
+                //         console.log(data);
+                //     }
+                // });
             }
 
             // TODO: changed rawLink to be SITE_ADDRESS + link, site address
@@ -239,18 +242,18 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                 };
 
                 // ajax call to post data to spreadsheet
-                $.ajax({
-                    url: 'https://sheetsu.com/apis/v1.0/d9acf6c52e0b/sheets/BuildsAPI',
-                    data: $httpParamSerializer(buildApiObject),
-                    dataType: 'json',
-                    type: 'POST',
-                    success: function(data) {
-                        console.log('Success!');
-                    },
-                    error: function(data) {
-                        console.log(data);
-                    }
-                });
+                // $.ajax({
+                //     url: 'https://sheetsu.com/apis/v1.0/d9acf6c52e0b/sheets/BuildsAPI',
+                //     data: $httpParamSerializer(buildApiObject),
+                //     dataType: 'json',
+                //     type: 'POST',
+                //     success: function(data) {
+                //         console.log('Success!');
+                //     },
+                //     error: function(data) {
+                //         console.log(data);
+                //     }
+                // });
 
                 $sessionStorage.kitMadePublic = true;
             } else {
@@ -265,18 +268,18 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
                     + '/hash/' + $sessionStorage.publicKitHash;
 
                 // ajax call to post data to spreadsheet
-                $.ajax({
-                    url: url,
-                    data: $httpParamSerializer(buildApiObject),
-                    dataType: 'json',
-                    type: 'PATCH',
-                    success: function(data) {
-                        console.log('Success!');
-                    },
-                    error: function(data) {
-                        console.log(data);
-                    }
-                });
+                // $.ajax({
+                //     url: url,
+                //     data: $httpParamSerializer(buildApiObject),
+                //     dataType: 'json',
+                //     type: 'PATCH',
+                //     success: function(data) {
+                //         console.log('Success!');
+                //     },
+                //     error: function(data) {
+                //         console.log(data);
+                //     }
+                // });
             }
 
             $sessionStorage.currentKitName = kitName;

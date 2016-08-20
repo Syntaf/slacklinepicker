@@ -1,5 +1,5 @@
 <div class="container container-small">
-    <div class="row display margined" ng-repeat="item in kit | orderBy : ['-category','subcategory']">
+    <div class="row display animate-into" ng-repeat="item in kit | orderBy : ['-category','subcategory']">
         <div class="col-xs-2 col-md-2 center-t">
             <p class="category-label">{{ item.category | capitalize}}</p>
         </div>
@@ -78,7 +78,7 @@
             <p ng-if="!showEuros" class="price-total-label">{{ total | currency }}</p>
             <p ng-if="showEuros" class="price-total-label">{{ total | euro | currency : "€" }}</p>
 
-            <!-- This is such a hacky solution to line up the price lol, I'm sorry -->
+            <!-- Hacky solution to ensure text is still aligned -->
             <p ng-if="viewAsShareable != true" class="notes-label hide-this noselect">Add Notes</p>
             <p ng-if="viewAsShareable" class="notes-label hide-this noselect">Show Notes</p>
             <span ng-if="viewAsShareable != true" class="glyphicon glyphicon-trash hide-this noselect"></span>
