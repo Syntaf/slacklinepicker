@@ -600,6 +600,10 @@ th {
     animation: 3.00s appear;
 }
 
+.animate-header {
+    animation: 2.5s appear;
+}
+
 @keyframes appear {
     from {
         opacity: 0;
