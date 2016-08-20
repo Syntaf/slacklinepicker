@@ -298,9 +298,14 @@ body {
 .filters {
     margin-top: 10px;
     background-color: white;
-    height: 580px;
     padding: 5px 10px;
     font-size: 13px;
+    animation: 2s appear;
+}
+
+#neg-margin {
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
 }
 
 .description-box {
@@ -409,11 +414,6 @@ body {
 
 #row-overflow {
     overflow: hidden;
-}
-
-#neg-margin {
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
 }
 
 .hover-pointer:hover {
@@ -621,23 +621,6 @@ th {
         opacity: 0;
     }
 }
-
-/*.animate-away.ng-enter-stagger {
-    transition-delay: 0.1s;
-}
-
-.animate-away.ng-enter,
-.animate-away.ng-move,
-.animate-away.ng-leave {
-    transition-property: all;
-    transition-duration: 0.5s;
-    transition-timing-function: linear;
-    opacity: 0;
-}
-.animate-away.ng-enter-active,
-.animate-away.ng-move-active {
-    opacity: 1;
-}*/
 
 @keyframes spin1 {
     100% {
