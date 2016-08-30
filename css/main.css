@@ -308,13 +308,22 @@ body {
     padding-bottom: 99999px;
 }
 
+.details-box {
+    font-style: italic;
+    text-align: center;
+}
+
 .description-box {
-    overflow-y: auto;
-    max-height: 500px;
+    /* .. */
 }
 
 .description-box strong {
     color: #D81159;
+}
+
+.desc-overflow {
+    overflow-y: auto;
+    max-height: 500px;
 }
 
 #product-link {
@@ -658,8 +667,8 @@ th {
         margin-top: -20px;
     }
 
-    .description-box {
-        max-height: 150px;
+    .desc-overflow {
+        max-height: 125px;
         overflow-y: scroll;
         font-size: 12px;
     }

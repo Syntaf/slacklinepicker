@@ -15,6 +15,11 @@ function($sessionStorage) {
             // plus a couple other items
             scope.fillDescription = function(product) {
                 $('.title-box').text(product.name);
+                if(product.details != undefined) {
+                    $('.details-box').text(product.details);
+                } else {
+                    $('.details-box').text('');
+                }
                 $('.description-box').text(product.description);
                 $('.description-box').append(
                     '<a target="_blank" href=' + product.link +

@@ -1,6 +1,6 @@
 app.factory('products', ['$http', function($http) {
         return $http.get(
-            'https://gist.githubusercontent.com/Syntaf/4c6704cbf128228ff50bdb2fd22c825c/raw/9330fa77f6e0068f9ad87a6fa44da190827248e1/slacklineproducts.json')
+            'https://gist.githubusercontent.com/Syntaf/aaeda8682a39928daf038cab746c392a/raw/6237edac20d4cbc8ae78ebe96eea638eac3c38e2/betaproducts.json')
             .success(function(data) {
                 return data;
             })
