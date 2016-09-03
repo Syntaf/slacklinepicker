@@ -15,10 +15,23 @@ function($sessionStorage) {
             // plus a couple other items
             scope.fillDescription = function(product) {
                 $('.title-box').text(product.name);
-                if(product.details != undefined) {
-                    $('.details-box').text(product.details);
+                $('.product-info').show();
+                if(product.wll != undefined) {
+                    $('.product-wll').text(product.wll + 'kN');
                 } else {
                     $('.details-box').text('');
+                }
+                if(product.mbs != undefined) {
+                    $('.product-mbs').text(product.mbs + 'kN');
+                } else {
+                    $('.product-mbs').text('');
+                }
+                if(product.stretch != undefined) {
+                    $('.webbing-only').show();
+                    $('.product-stretch').text(product.stretch + '%');
+                } else {
+                    $('.webbing-only').hide();
+                    $('.product-stretch').text('');
                 }
                 $('.description-box').text(product.description);
                 $('.description-box').append(

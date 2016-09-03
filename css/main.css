@@ -548,6 +548,21 @@ th {
     animation: spin1 1s infinite linear;
 }
 
+.product-info {
+    display: none;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.product-info tr {
+    padding: 5px 0;
+}
+
+.product-info td {
+    padding: 0 5px;
+}
+
 .animate-into:nth-child(1) {
     animation: 0.15s appear;
 }
