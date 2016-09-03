@@ -30,3 +30,8 @@ var makeId = function()
 
     return text;
 }
+
+var capitalizeRoutes = function(input)
+{
+    return input.replace('_', ' ').replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}

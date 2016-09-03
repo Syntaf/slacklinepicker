@@ -77,9 +77,13 @@ $sessionStorage, $rootScope, $window, $timeout) {
         $('#dropdown-subcategory').show();
         if($routeParams.subcategory == null) {
             // if no subcategory was selected, only filter by category
+
+            $('#dropdown-button-main').html(capitalizeRoutes($routeParams.category) + ' <span class="caret"></span></button>');
             $scope.filters = {category : $routeParams.category}
         } else {
             // filter by both category and subcategory
+            $('#dropdown-button-main').html(capitalizeRoutes($routeParams.category) + ' <span class="caret"></span></button>');
+            $('#dropdown-button-sub').html(capitalizeRoutes($routeParams.subcategory) + ' <span class="caret"></span></button>');
             $scope.filters = {
                 category : $routeParams.category,
                 subcategory: $routeParams.subcategory

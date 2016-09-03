@@ -667,6 +667,10 @@ th {
         font-size: 12px;
     }
 
+    .wrapper {
+        margin-top: 10px;
+    }
+
     #neg-margin {
         margin-bottom: 0px;
         padding-bottom: 0px;
