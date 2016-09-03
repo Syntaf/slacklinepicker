@@ -22,8 +22,6 @@ app.controller('MainController', ['$scope', 'products', '$sessionStorage',
         products.success(function(data) {
             $scope.lproducts = data;
 
-            // TODO: ID's correspond to array locations, do that instead?
-            // set the kit to all products mentioned in the route string
             $scope.kit = $.grep($scope.lproducts, function(e) {
                 var found = false;
                 $scope.productListById.forEach(function(x) {
