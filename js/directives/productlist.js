@@ -22,7 +22,7 @@ function($sessionStorage) {
                     if(product.wll != undefined) {
                         $('.product-wll').text(product.wll + 'kN');
                     } else {
-                        $('.details-box').text('');
+                        $('.product-wll').text('');
                     }
                     if(product.mbs != undefined) {
                         $('.product-mbs').text(product.mbs + 'kN');
