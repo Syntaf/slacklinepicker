@@ -1,6 +1,6 @@
 app.factory('notes', ['$http', function($http) {
     return $http.get(
-        'https://sheetsu.com/apis/v1.0/d9acf6c52e0b/sheets/NoteAPI')
+        '') // note API has been removed as I no longer pay for the sheetsu membership
         .success(function(data) {
             return data;
         })
